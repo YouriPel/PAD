@@ -95,12 +95,18 @@ public class VragenScript : MonoBehaviour
 			}
 			print ("answer: "+answerButton[i]);
 		}
-
-
+        
         // Hier moeten de antwoorden worden gelinkt aan de knoppen op willekeurige volgorde
         // Houd er rekening mee dat een van de antwoorden de goede moet zijn & dat antwoorden van de array per 4 gesorteerd zijn op vraag
         // Dus answers[0] t/m answers[3] = question[0], answers[4] t/m answers[7] = question[1]
     }
 
+    public void Shuffle()
+    {
+        for (int iRandom = 0; iRandom < answerButton.Length; iRandom++)
+        {
+            
+        }
+    }
 
 }

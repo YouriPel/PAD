@@ -11,6 +11,7 @@ public class UIScript : MonoBehaviour {
     public GameObject questionFrame;
     public GameObject answerFrame;
 	public GameObject GameManager;
+    public GameObject endFrame;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class UIScript : MonoBehaviour {
         question.SetActive(false);
         questionFrame.SetActive(false);
         answerFrame.SetActive(false);
+        endFrame.SetActive(false);
     }
 
     public void KlikStartButton()
@@ -36,5 +38,16 @@ public class UIScript : MonoBehaviour {
 		GameManager.GetComponent<VragenScript> ().SetAnswer ();
     }
 
-	//COMMIT TEST
+    public void ClickAnswerButton()
+    {
+        answerFrame.SetActive(false);
+        gameFrame.SetActive(false);
+        endFrame.SetActive(true);
+    }
+
+    public void ClickEndGameButton()
+    {
+        endFrame.SetActive(false);
+        menu.SetActive(true);
+    }
 }
