@@ -513,8 +513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50e53d53b1d08a45a08c080d5eca42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 1969928226}
-  confirmButton: {fileID: 194610296}
 --- !u!114 &840378578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,10 +759,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323444887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4babab374f25620449495520b64f6e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a34cac60e89a14198ce14227eb6e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antwoorden: []
 --- !u!4 &1323444890
 Transform:
   m_ObjectHideFlags: 0

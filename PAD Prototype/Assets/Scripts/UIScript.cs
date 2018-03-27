@@ -35,4 +35,6 @@ public class UIScript : MonoBehaviour {
         answerFrame.SetActive(true);
 		GameManager.GetComponent<VragenScript> ().SetAnswer ();
     }
+
+	//COMMIT TEST
 }
