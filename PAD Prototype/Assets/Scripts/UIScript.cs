@@ -10,7 +10,7 @@ public class UIScript : MonoBehaviour {
     public GameObject question;
     public GameObject questionFrame;
     public GameObject answerFrame;
-	public GameObject GameManager;
+	public GameObject GameHolder;
     public GameObject endFrame;
 
     void Start()
@@ -35,7 +35,7 @@ public class UIScript : MonoBehaviour {
     {
         questionFrame.SetActive(false);
         answerFrame.SetActive(true);
-		GameManager.GetComponent<VragenScript> ().SetAnswer ();
+		GameHolder.GetComponent<VragenScript> ().SetAnswer ();
     }
 
     public void ClickAnswerButton()

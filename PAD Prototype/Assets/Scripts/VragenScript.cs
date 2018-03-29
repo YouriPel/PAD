@@ -16,15 +16,21 @@ public class VragenScript : MonoBehaviour
     public List<String> questions;
 
     public string[] quizDB;
+	public string[] previousQuestion;
 
 	public Button[] answerButton = new Button[5];
 
-    int questionNumber;
+    int questionNumber, correctAnswer, temp_sol;
+
+	System.Random rnd = new System.Random();
+
+	public GameObject GameManager;
+	private UIScript UI;
 
     void Start ()
     {
+		UI = GameManager.GetComponent<UIScript> ();
         InitVragen();
-        questionNumber = 0;
     }
 
     void InitVragen()
@@ -37,12 +43,14 @@ public class VragenScript : MonoBehaviour
         string alleVragen = sr.ReadToEnd();
 		//print ("alleVragen: "+alleVragen);
         string[] lines = Regex.Split(alleVragen, ";");
-
         // Putting the questions randomly in an array
-        System.Random rnd = new System.Random();
-        int rndQuestion = rnd.Next(0, lines.Length);
-        quizDB = Regex.Split(lines[rndQuestion], "~");
-		//print ("quizDB: "+quizDB);
+        int rndQuestion = rnd.Next(0, 4);
+		quizDB = Regex.Split(lines[rndQuestion], "~");
+        
+		/*for(int i=0; i<lines.Length; i++){
+			
+			print ("quizDB: "+quizDB[i]);
+		}*/
 
         // Assigning every 5th value as a question and the others as answers
         for (int iLine = 0; iLine < quizDB.Length; iLine++)
@@ -54,50 +62,54 @@ public class VragenScript : MonoBehaviour
 			else
             {
 				answers.Add (quizDB [iLine]);
+				//vier volgende vragen hiero
             }
         }
         sr.Close();
-		ShowQuestion ();
 
-		print ("Questions: "+questions.Count);
+		previousQuestion = new String[4];
+		/*print ("Questions: "+questions.Count);
 		print ("answers: "+answers.Count);
 
 		for(int i=0; i<answers.Count; i++)
 		{
 			print ("antwoord: "+answers[i]);
-		}
+		}*/
     }
 
     // Display question on screen
     public void ShowQuestion()
     {
-        print(questions[questionNumber]);
-        questionField.text = questions[questionNumber];
+		questionField.text = questions[questionNumber];
+		questionNumber++;
+		correctAnswer = rnd.Next (0, 4); //1 van de 4 antwoorden is goed
+		print("correctAnswer: "+correctAnswer);
 		//print ("wat is de vraag: "+questions[questionNumber]);
-        questionNumber++;
+        
+		inputAnswer.text = "";
     }
 
 
 	
     public void SetAnswer()
     {
+		print ("setanswer");
         customAnswer = inputAnswer.text;
        //print(customAnswer);
         
-        System.Random rnd = new System.Random();
+        /*System.Random rnd = new System.Random();
         int index = rnd.Next(0, questions.Count);
         //print(index);
         
-        questionField.text = questions[index];
+        questionField.text = questions[index];*/
         //print(questions[index]);
 
 		answerButton [4].GetComponentInChildren<Text> ().text = customAnswer;
 
-		for(int i=0; i < answerButton.Length; i++){
-			if (answerButton [i].GetComponentInChildren<Text> ().text == "") {
-				answerButton [i].GetComponentInChildren<Text> ().text = answers [i];
-			}
-			print ("answer: "+answerButton[i]);
+		for(int i=0; i < answerButton.Length-1; i++){
+			answerButton [i].GetComponentInChildren<Text> ().text = answers [i+temp_sol];
+			//print ("answerbtn tekst: "+answerButton [i].GetComponentInChildren<Text> ().text);
+			//print ("answer: "+answerButton[i]);
 		}
         
         // Hier moeten de antwoorden worden gelinkt aan de knoppen op willekeurige volgorde
@@ -105,12 +117,38 @@ public class VragenScript : MonoBehaviour
         // Dus answers[0] t/m answers[3] = question[0], answers[4] t/m answers[7] = question[1]
     }
 
+	public void ClickAnswerButton(int val){
+		for(int i=0; i<answerButton.Length; i++){
+			answerButton [i].GetComponent<Image> ().color = Color.red;
+		}
+		answerButton [correctAnswer].GetComponent<Image> ().color = Color.green;
+
+		StartCoroutine (NextQuestion());
+	}
+
+	IEnumerator NextQuestion(){
+		yield return new WaitForSeconds (3);
+		for(int i=0; i<answerButton.Length; i++){
+			answerButton [i].GetComponent<Image> ().color = Color.white;
+		}
+		ShowNextQuestion ();
+	}
+
+	void ShowNextQuestion(){
+		temp_sol += 4;
+		UI.questionFrame.SetActive(true);
+		UI.answerFrame.SetActive(false);
+		InitVragen ();
+		ShowQuestion ();
+	}
+
+	/*
     public void Shuffle()
     {
         for (int iRandom = 0; iRandom < answerButton.Length; iRandom++)
         {
             
         }
-    }
+    }*/
 
 }
