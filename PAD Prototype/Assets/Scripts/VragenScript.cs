@@ -30,10 +30,10 @@ public class VragenScript : MonoBehaviour
     void Start ()
     {
 		UI = GameManager.GetComponent<UIScript> ();
-        InitVragen();
+        //InitVragen();
     }
 
-    void InitVragen()
+    /*void InitVragen()
     {
         // Getting the questions and answers from a txt file
         string path = "Assets/VragenLijst.txt";
@@ -50,7 +50,7 @@ public class VragenScript : MonoBehaviour
 		/*for(int i=0; i<lines.Length; i++){
 			
 			print ("quizDB: "+quizDB[i]);
-		}*/
+		}
 
         // Assigning every 5th value as a question and the others as answers
         for (int iLine = 0; iLine < quizDB.Length; iLine++)
@@ -68,14 +68,14 @@ public class VragenScript : MonoBehaviour
         sr.Close();
 
 		previousQuestion = new String[4];
-		/*print ("Questions: "+questions.Count);
+		print ("Questions: "+questions.Count);
 		print ("answers: "+answers.Count);
 
 		for(int i=0; i<answers.Count; i++)
 		{
 			print ("antwoord: "+answers[i]);
-		}*/
-    }
+		}
+    }*/
 
     // Display question on screen
     public void ShowQuestion()
@@ -149,7 +149,7 @@ public class VragenScript : MonoBehaviour
 		temp_sol += 4;
 		UI.questionFrame.SetActive(true);
 		UI.answerFrame.SetActive(false);
-		InitVragen ();
+		//InitVragen ();
 		ShowQuestion ();
 	}
 
