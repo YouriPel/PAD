@@ -123,10 +123,21 @@ public class VragenScript : MonoBehaviour
 		}
 		answerButton [correctAnswer].GetComponent<Image> ().color = Color.green;
 
-		StartCoroutine (NextQuestion());
+        StartCoroutine (NextCorrectAnswer());
 	}
 
-	IEnumerator NextQuestion(){
+    IEnumerator NextCorrectAnswer()
+    {
+        questionField.text = questionField.text + "\n\n" + 
+            "Het goede antwoord was: " + 
+            answerButton[correctAnswer].GetComponentInChildren<Text>().text;
+
+        yield return new WaitForSeconds(3);
+
+        StartCoroutine(NextQuestion());
+    }
+
+    IEnumerator NextQuestion(){
 		yield return new WaitForSeconds (3);
 		for(int i=0; i<answerButton.Length; i++){
 			answerButton [i].GetComponent<Image> ().color = Color.white;
