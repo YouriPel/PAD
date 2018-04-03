@@ -128,6 +128,7 @@ public class VragenScript : MonoBehaviour
 
     IEnumerator NextCorrectAnswer()
     {
+        //TEST 3-4-2018 15:53
         questionField.text = questionField.text + "\n\n" + 
             "Het goede antwoord was: " + 
             answerButton[correctAnswer].GetComponentInChildren<Text>().text;
