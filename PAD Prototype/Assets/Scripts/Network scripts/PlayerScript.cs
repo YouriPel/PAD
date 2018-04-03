@@ -13,6 +13,9 @@ public class PlayerScript : NetworkBehaviour {
 	private GameObject gameManager;
 	private GameScript gameScript;
 
+	[SyncVar]
+	private string antwoord;
+
 	void Start(){
 		gameManager = GameObject.Find ("GameManager");
 		gameScript = gameManager.GetComponent<GameScript> ();
@@ -24,6 +27,7 @@ public class PlayerScript : NetworkBehaviour {
 	}
 
 	public void SubmitAnswer(){
-		gameScript.antwoorden.Add (playerInput.text);
+		antwoord = playerInput.text;
+		gameScript.antwoorden.Add(antwoord);
 	}
 }

@@ -5,7 +5,9 @@ using UnityEngine.Networking;
 
 public class GameScript : NetworkBehaviour {
 
+
 	public List<string> antwoorden = new List <string>();
+
 
 	void Start () {
 		
@@ -13,11 +15,13 @@ public class GameScript : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(!isServer) return;
+
 		if(antwoorden.Count > 0){
 			for(int i=0; i<antwoorden.Count; i++){
 				print ("antwoord: "+antwoorden[i]);
 			}
 		}
-
 	}
 }

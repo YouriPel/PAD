@@ -292,7 +292,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1497725608673836, guid: b237ac3ed5cd3994eb06c36ad252f33c,
+  m_PlayerPrefab: {fileID: 1497725608673836, guid: 128f0eb9bf9045a499cbaa309679ee3d,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 840378575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50e53d53b1d08a45a08c080d5eca42c, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b14a25a1c097d4fb36380ee63f9c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1969928226}
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323444887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4babab374f25620449495520b64f6e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bfe15067508f324bb1fcd83fec25941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   antwoorden: []

@@ -55,22 +55,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 178
-    i1: 55
-    i2: 172
-    i3: 62
-    i4: 213
-    i5: 205
-    i6: 57
-    i7: 148
-    i8: 235
-    i9: 6
-    i10: 195
-    i11: 106
-    i12: 210
-    i13: 82
-    i14: 243
-    i15: 60
+    i0: 18
+    i1: 143
+    i2: 14
+    i3: 185
+    i4: 191
+    i5: 144
+    i6: 69
+    i7: 164
+    i8: 153
+    i9: 203
+    i10: 170
+    i11: 48
+    i12: 150
+    i13: 121
+    i14: 238
+    i15: 61
   m_ServerOnly: 1
   m_LocalPlayerAuthority: 0
 --- !u!114 &114336618414742404
@@ -81,7 +81,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1497725608673836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22b96c3d2b8f0d4fa5ce2f2be3a0496, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a34cac60e89a14198ce14227eb6e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
