@@ -51,9 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\GameScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-     <Compile Include="Assets\Scripts\UIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\GameHolderScript.cs" />
+     <Compile Include="Assets\Scripts\Network scripts\GameScript.cs" />
+     <Compile Include="Assets\Scripts\Network scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\Network scripts\UIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\NewSceneFolder\GameManager.cs" />
      <Compile Include="Assets\Scripts\UIScript.cs" />
      <Compile Include="Assets\Scripts\VragenScript.cs" />
      <None Include="Assets\VragenLijst.txt" />
