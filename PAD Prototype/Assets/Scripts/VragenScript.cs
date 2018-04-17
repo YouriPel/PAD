@@ -87,6 +87,7 @@ public class VragenScript : MonoBehaviour
 		//print ("wat is de vraag: "+questions[questionNumber]);
         
 		inputAnswer.text = "";
+		//test line
     }
 
 
