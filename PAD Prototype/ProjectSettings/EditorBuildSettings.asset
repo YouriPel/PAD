@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/scene.unity
-    guid: cf478b23894328a41ae5fe572125f086
+    path: Assets/Scenes/Txai_Network_Scen.unity
+    guid: 8084df3dff11dae408827ece2b3b30e3

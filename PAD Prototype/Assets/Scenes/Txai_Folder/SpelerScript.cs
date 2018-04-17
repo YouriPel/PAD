@@ -8,8 +8,10 @@ using System;
 public class SpelerScript : NetworkBehaviour
 {
     public InputField playerInput;
+
     [SyncVar(hook = "OnChangeText")]
     public String antwoordText = "";
+
     private GameObject antwoordObj;
 
 
@@ -29,16 +31,18 @@ public class SpelerScript : NetworkBehaviour
     public void SendAnswer()
     {
         //knop functie
-		CmdSetAnswer();
+		if(isLocalPlayer)CmdSetAnswer(playerInput.text);
     }
 
 	[Command]
-	void CmdSetAnswer(){
-		antwoordText = playerInput.text;
+	void CmdSetAnswer(String input){
+		antwoordText = input;
+		print ("Input: " + input);
 	}
 
     void OnChangeText(String answer)
     {
+        print("answer: "+answer);
         //antwoordText = playerAnswer;
 		antwoordObj.GetComponent<Text>().text = answer;
     }
