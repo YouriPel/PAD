@@ -364,7 +364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 114784420382289388}
-  antwoordText: 
 --- !u!114 &114784420382289388
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,18 +8,13 @@ using System;
 public class SpelerScript : NetworkBehaviour
 {
     public InputField playerInput;
-
-    [SyncVar(hook = "OnChangeText")]
-    public String antwoordText = "";
-
-    private GameObject antwoordObj;
-
+	private GameManagerScript gameManager;
 
     void Start ()
     {
 		this.transform.SetParent (GameObject.Find("Canvas").transform);
         this.GetComponent<RectTransform>().localScale = new Vector2(1,1);
-        antwoordObj = GameObject.Find("AntwoordText");
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript>();
 
     }
 
@@ -30,20 +25,14 @@ public class SpelerScript : NetworkBehaviour
 
     public void SendAnswer()
     {
-        //knop functie
-		if(isLocalPlayer)CmdSetAnswer(playerInput.text);
+		print ("klik: "+playerInput.text);
+		CmdSetAnswer(playerInput.text);
     }
 
 	[Command]
 	void CmdSetAnswer(String input){
-		antwoordText = input;
-		print ("Input: " + input);
+		gameManager.antwoordText = input;
 	}
 
-    void OnChangeText(String answer)
-    {
-        print("answer: "+answer);
-        //antwoordText = playerAnswer;
-		antwoordObj.GetComponent<Text>().text = answer;
-    }
+    
 }
