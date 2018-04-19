@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour {
 
@@ -72,16 +73,51 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-    public void ClickAnswerButton() {
+    public void ClickAnswerButton(int knopId)
+    {
         // Correct / Incorrect answer must be done here
         // Score can be done here as well
+
+        //The answer button that the user clicked changes color to yellow
+        AnswerButtons[knopId].GetComponent<Image>().color = Color.yellow;
+        
+        StartCoroutine(ShowCorrectAnswer());
+    }
+
+    IEnumerator ShowCorrectAnswer()
+    {
+        //TO DO: De button moet geel blijven zolang the timer nog niet afgelopen
+        //is en de overige spelers nog niet antwoord hebben gegeven
+
+        //TEMP: Wait for 1 second
+        yield return new WaitForSeconds(1);
+
+        //Change the color of all answer buttons to red
+        for (int i = 0; i < AnswerButtons.Length; i++)
+        {
+            AnswerButtons[i].GetComponent<Image>().color = Color.red;
+        }
+        //Changes the color of the correct answer button to green
+        AnswerButtons[0].GetComponent<Image>().color = Color.green;
+        //Shows the correct answerr
+        
+        QuestionText.GetComponent<Text>().text = "Het goede antwoord was:\n\n" + Answers[0];
+
+        StartCoroutine(NextCorrectAnswer());
+    }
+
+    IEnumerator NextCorrectAnswer()
+    {
+        yield return new WaitForSeconds(5);
+
+        ShowQuestion();
 
         // Temporary test switch
         AnswerScreen.SetActive(false);
         UserInputScreen.SetActive(true);
-        ShowQuestion();
 
-        if (QuestionAmount > TotalQuestionAmount) {
+        if (QuestionAmount > TotalQuestionAmount)
+        {
             GameScreen.SetActive(false);
             AnswerScreen.SetActive(false);
             QuestionText.SetActive(false);
@@ -98,7 +134,11 @@ public class GameManager : MonoBehaviour {
 	void ShowQuestion() {
         QuestionAmount++;
         ShowQuestionAmount();
-		// Get question and show it
-		// Only unique questions can be shown
-	}
+        for (int i = 0; i < AnswerButtons.Length; i++)
+        {
+            AnswerButtons[i].GetComponent<Image>().color = Color.white;
+        }
+        // Get question and show it
+        // Only unique questions can be shown
+    }
 }
