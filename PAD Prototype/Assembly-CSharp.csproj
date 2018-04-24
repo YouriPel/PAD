@@ -53,13 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scenes\Txai_Folder\GameManagerScript.cs" />
      <Compile Include="Assets\Scenes\Txai_Folder\SpelerScript.cs" />
-     <Compile Include="Assets\Scripts\GameHolderScript.cs" />
-     <Compile Include="Assets\Scripts\Network scripts\GameScript.cs" />
-     <Compile Include="Assets\Scripts\Network scripts\PlayerScript.cs" />
-     <Compile Include="Assets\Scripts\Network scripts\UIManagerScript.cs" />
-     <Compile Include="Assets\Scripts\NewSceneFolder\GameManager.cs" />
-     <Compile Include="Assets\Scripts\UIScript.cs" />
-     <Compile Include="Assets\Scripts\VragenScript.cs" />
+     <Compile Include="Assets\Scripts\GameScreenScript.cs" />
+     <Compile Include="Assets\Scripts\GameStateScript.cs" />
      <None Include="Assets\VragenLijst.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -127,12 +122,9 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
-<<<<<<< HEAD
-=======
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>D:/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
->>>>>>> 9b3237cddd08bbdf2a1db3426c22ad953c873e3e
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/Kevin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>

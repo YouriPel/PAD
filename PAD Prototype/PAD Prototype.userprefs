@@ -1,14 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Txai_Folder\SpelerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameScreenScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\VragenScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UIScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\Txai_Folder\SpelerScript.cs" Line="1" Column="1" />
-<<<<<<< HEAD
-=======
-      <File FileName="Assets\Scenes\Txai_Folder\GameManagerScript.cs" Line="1" Column="1" />
->>>>>>> 9b3237cddd08bbdf2a1db3426c22ad953c873e3e
+      <File FileName="Assets\Scripts\GameScreenScript.cs" Line="84" Column="62" />
+      <File FileName="Assets\Scripts\GameStateScript.cs" Line="17" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
