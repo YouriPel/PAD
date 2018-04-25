@@ -67,6 +67,8 @@ public class GameScreenScript : MonoBehaviour {
 		}
 	}
 
+    public Boolean goedFout;
+
 	public void ClickAnswerButton(int knopId)
 	{
 		// Correct / Incorrect answer must be done here
@@ -74,8 +76,16 @@ public class GameScreenScript : MonoBehaviour {
 
 		//The answer button that the user clicked changes color to yellow
 		AnswerButtons[knopId].GetComponent<Image>().color = Color.yellow;
-
-		StartCoroutine(ShowCorrectAnswer());
+        //Looks if the right or wrong answer is clicked
+        if (AnswerButtons[knopId] == AnswerButtons[0])
+        {
+            goedFout = true;
+        }
+        else
+        {
+            goedFout = false;
+        }
+        StartCoroutine(ShowCorrectAnswer());
 	}
 
 	IEnumerator ShowCorrectAnswer()
