@@ -12,7 +12,10 @@ public class GameStateScript : MonoBehaviour {
     public GameObject AnswerScreen;
     public GameObject ScoreScreen;
 
+	public GameScreenScript gameScreenScript;
+
 	void Start () {
+		print ("start");
 		MainMenu.SetActive(true);
 		GameScreen.SetActive (false);
 		EndScreen.SetActive (false);
@@ -24,11 +27,14 @@ public class GameStateScript : MonoBehaviour {
 	public void StartGame() {
 		MainMenu.SetActive(false);
 		GameScreen.SetActive(true);
+		gameScreenScript = GameScreen.GetComponent<GameScreenScript> ();
+		print ("start game");
 	}
     
 	//Method for the back to main menu button
 	public void ClickEndGameButton() {
-		EndScreen.SetActive(false);
-		MainMenu.SetActive(true);
+		Application.Quit ();
+		//EndScreen.SetActive(false);
+		//MainMenu.SetActive(true);
 	}
 }

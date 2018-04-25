@@ -135,7 +135,8 @@ public class GameScreenScript : MonoBehaviour {
     IEnumerator ShowScoreboard()
     {
         AnswerScreen.SetActive(false);
-        GameScreen.SetActive(false);
+        //GameScreen.SetActive(false);
+		QuestionText.GetComponent<Text>().text = "";
         ScoreScreen.SetActive(true);
 
         yield return new WaitForSeconds(2);
