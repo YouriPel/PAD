@@ -23,7 +23,8 @@ public class GameScreenScript : MonoBehaviour {
 	public int QuestionAmount;
 	private String PlayerAnswer;
 
-	public List<String> Answers = new List<String>();
+    string[] questionArray = new string[3];
+    public List<String> Answers = new List<String>();
 	public GameObject[] AnswerButtons = new GameObject[5];
 
 	public readonly int MAX_ANSWERS = 5;
@@ -36,9 +37,14 @@ public class GameScreenScript : MonoBehaviour {
 		gameStateScript = GameObject.Find ("GameStateManager").GetComponent<GameStateScript> ();
 
 		// Get all question and answers here
-		for (int i = 0; i < AnswerButtons.Length - 1; i++) {
-			Answers.Add ("Antwoord " + i);
-		}
+		Answers.Add("15 minuten");
+        Answers.Add("12,2");
+        Answers.Add("Vitamine B");
+        Answers.Add("900");
+
+        questionArray[0] = "Trudy heeft een sappige mango. Hoeveel gram suiker bevat Trudy’s mango ?";
+        questionArray[1] = "Jaap heeft een kater. Welke vitamine kan hij het beste nemen ?";
+        questionArray[2] = "Jaap en Trudy hebben een date bij de McDonalds, ze bestellen beide een McChicken. Hoeveel calorieën krijgen ze totaal binnen ?";
 
 		UserInputScreen.SetActive(true);
 		AnswerScreen.SetActive(false);
@@ -85,7 +91,7 @@ public class GameScreenScript : MonoBehaviour {
 		//The answer button that the user clicked changes color to yellow
 		AnswerButtons[knopId].GetComponent<Image>().color = Color.yellow;
         //Looks if the right or wrong answer is clicked
-        if (AnswerButtons[knopId] == AnswerButtons[0])
+        if (AnswerButtons[knopId] == AnswerButtons[QuestionAmount])
         {
             scoreCount += POINT;
         }
@@ -94,7 +100,8 @@ public class GameScreenScript : MonoBehaviour {
         StartCoroutine(ShowCorrectAnswer());
 	}
 
-    private String[] questionArray = new String[2];
+
+
 
 	IEnumerator ShowCorrectAnswer()
 	{
@@ -110,11 +117,10 @@ public class GameScreenScript : MonoBehaviour {
 			AnswerButtons[i].GetComponent<Image>().color = Color.red;
 		}
 		//Changes the color of the correct answer button to green
-		AnswerButtons[0].GetComponent<Image>().color = Color.green;
+		AnswerButtons[QuestionAmount].GetComponent<Image>().color = Color.green;
         //Shows the correct answerr
 
-        QuestionText.SetActive(true);
-		QuestionText.GetComponent<Text>().text = "Het goede antwoord was:\n\n" + Answers[0];
+		QuestionText.GetComponent<Text>().text = "Het goede antwoord was:\n\n" + Answers[QuestionAmount];
 
 		StartCoroutine(NextCorrectAnswer());
 	}
@@ -122,8 +128,6 @@ public class GameScreenScript : MonoBehaviour {
 	IEnumerator NextCorrectAnswer()
 	{
 		yield return new WaitForSeconds(2);
-
-        QuestionText.SetActive(false);
         
         StartCoroutine(ShowScoreboard());
     }
@@ -150,7 +154,8 @@ public class GameScreenScript : MonoBehaviour {
     }
 
     void ShowQuestion() {
-		QuestionAmount++;
+        QuestionText.GetComponent<Text>().text = questionArray[QuestionAmount];
+        QuestionAmount++;
 		ShowQuestionAmount();
 		for (int i = 0; i < AnswerButtons.Length; i++)
 		{
