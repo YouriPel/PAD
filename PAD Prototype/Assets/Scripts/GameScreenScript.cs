@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +13,12 @@ public class GameScreenScript : MonoBehaviour {
 	public GameObject QuestionAmountText;
 	public GameObject UserInputScreen;
 	public GameObject AnswerScreen;
+    public GameObject MainMenu;
+    public GameObject GameScreen;
+    public GameObject EndScreen;
+    public GameObject ScoreScreen;
 
-	public InputField PlayerInput;
+    public InputField PlayerInput;
 	public int TotalQuestionAmount;
 	public int QuestionAmount;
 	private String PlayerAnswer;
@@ -67,9 +71,13 @@ public class GameScreenScript : MonoBehaviour {
 		}
 	}
 
-    public Boolean goedFout;
+    public GameObject scoreObject;
 
-	public void ClickAnswerButton(int knopId)
+    //readonly int DEFAULT_SCORE = 0;
+    readonly int POINT = 1;
+    int scoreCount;
+
+    public void ClickAnswerButton(int knopId)
 	{
 		// Correct / Incorrect answer must be done here
 		// Score can be done here as well
@@ -79,14 +87,14 @@ public class GameScreenScript : MonoBehaviour {
         //Looks if the right or wrong answer is clicked
         if (AnswerButtons[knopId] == AnswerButtons[0])
         {
-            goedFout = true;
+            scoreCount += POINT;
         }
-        else
-        {
-            goedFout = false;
-        }
+        
+        scoreObject.GetComponent<Text>().text = scoreCount.ToString();
         StartCoroutine(ShowCorrectAnswer());
 	}
+
+    private String[] questionArray = new String[2];
 
 	IEnumerator ShowCorrectAnswer()
 	{
@@ -103,8 +111,9 @@ public class GameScreenScript : MonoBehaviour {
 		}
 		//Changes the color of the correct answer button to green
 		AnswerButtons[0].GetComponent<Image>().color = Color.green;
-		//Shows the correct answerr
+        //Shows the correct answerr
 
+        QuestionText.SetActive(true);
 		QuestionText.GetComponent<Text>().text = "Het goede antwoord was:\n\n" + Answers[0];
 
 		StartCoroutine(NextCorrectAnswer());
@@ -112,22 +121,35 @@ public class GameScreenScript : MonoBehaviour {
 
 	IEnumerator NextCorrectAnswer()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(2);
 
-		ShowQuestion();
+        QuestionText.SetActive(false);
+        
+        StartCoroutine(ShowScoreboard());
+    }
 
-		// Temporary test switch
-		AnswerScreen.SetActive(false);
-		UserInputScreen.SetActive(true);
+    IEnumerator ShowScoreboard()
+    {
+        AnswerScreen.SetActive(false);
+        GameScreen.SetActive(false);
+        ScoreScreen.SetActive(true);
 
-		if (QuestionAmount > TotalQuestionAmount)
-		{
-			gameStateScript.GameScreen.SetActive(false);
-			gameStateScript.EndScreen.SetActive(true);
-		}
-	}
+        yield return new WaitForSeconds(2);
 
-	void ShowQuestion() {
+        if (QuestionAmount >= TotalQuestionAmount)
+        {
+            gameStateScript.ScoreScreen.SetActive(false);
+            gameStateScript.EndScreen.SetActive(true);
+        } else {
+            // Temporary test switch
+            ScoreScreen.SetActive(false);
+            GameScreen.SetActive(true);
+            UserInputScreen.SetActive(true);
+            ShowQuestion();
+        }
+    }
+
+    void ShowQuestion() {
 		QuestionAmount++;
 		ShowQuestionAmount();
 		for (int i = 0; i < AnswerButtons.Length; i++)
