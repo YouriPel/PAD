@@ -6,6 +6,7 @@ public class SceneManager : MonoBehaviour {
 
     // Creating the GameObjects
     public GameObject mainMenu;
+    public GameObject usernameScreen;
     public GameObject gameScreen;
     public GameObject questionText;
     public GameObject questionAmountText;
@@ -21,6 +22,19 @@ public class SceneManager : MonoBehaviour {
 
     public void ShowMenu() {
         mainMenu.SetActive(true);
+        usernameScreen.SetActive(false);
+        gameScreen.SetActive(false);
+        questionText.SetActive(false);
+        questionAmountText.SetActive(false);
+        userInputScreen.SetActive(false);
+        answerScreen.SetActive(false);
+        endGameScreen.SetActive(false);
+        scoreScreen.SetActive(false);
+    }
+
+    public void ShowUsernameScreen() {
+        mainMenu.SetActive(false);
+        usernameScreen.SetActive(true);
         gameScreen.SetActive(false);
         questionText.SetActive(false);
         questionAmountText.SetActive(false);
@@ -32,6 +46,7 @@ public class SceneManager : MonoBehaviour {
 
     public void ShowUserInputScreen() {
         mainMenu.SetActive(false);
+        usernameScreen.SetActive(false);
         gameScreen.SetActive(true);
         questionText.SetActive(true);
         questionAmountText.SetActive(true);
@@ -41,9 +56,9 @@ public class SceneManager : MonoBehaviour {
         scoreScreen.SetActive(false);
     }
 
-    // TODO: Act when everyone filled in an answer
     public void ShowAnswerScreen() {
         mainMenu.SetActive(false);
+        usernameScreen.SetActive(false);
         gameScreen.SetActive(true);
         questionText.SetActive(true);
         questionAmountText.SetActive(true);
@@ -53,9 +68,9 @@ public class SceneManager : MonoBehaviour {
         scoreScreen.SetActive(false);
     }
 
-    // TODO: Act when everyone clicked an answer
     public void ShowScoreboard() {
         mainMenu.SetActive(false);
+        usernameScreen.SetActive(false);
         gameScreen.SetActive(false);
         questionText.SetActive(false);
         questionAmountText.SetActive(false);
@@ -67,6 +82,7 @@ public class SceneManager : MonoBehaviour {
 
     public void ShowEndGameScreen() {
         mainMenu.SetActive(false);
+        usernameScreen.SetActive(false);
         gameScreen.SetActive(false);
         questionText.SetActive(false);
         questionAmountText.SetActive(false);

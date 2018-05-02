@@ -6,23 +6,16 @@ using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour {
 
-    public List<String> userScores;
-
-    public GameObject username1;
-    public GameObject username2;
-    public GameObject username3;
-    public GameObject username4;
-
     public InputField username;
 
-    public int score;
-    public String name;
+    private int score;
+    private String name;
 
     private readonly int CORRECT_ANSWER_POINT = 1;
     private readonly int RESET_SCORE = 0;
 
     public void Start() {
-        this.SetName(username.GetComponent<Text>().text);
+        this.SetName(username.text);
         this.ResetScore();
     }
 
@@ -44,13 +37,5 @@ public class Scoreboard : MonoBehaviour {
 
     public int GetScore() {
         return score;
-    }
-
-    public void SetScoreboard() {
-        // TODO: Set if statements for user amount (Network related)
-        userScores = new List<String> { username1.GetComponentInChildren<Text>().GetComponent<Text>().text, username2.GetComponentInChildren<Text>().GetComponent<Text>().text,
-                                        username3.GetComponentInChildren<Text>().GetComponent<Text>().text, username4.GetComponentInChildren<Text>().GetComponent<Text>().text };
-        // TODO: Sort on score
-        userScores.Sort();
     }
 }
