@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour {
 
-    public List<GameObject> users;
+    public List<String> userScores;
 
     public GameObject username1;
     public GameObject username2;
@@ -48,7 +48,9 @@ public class Scoreboard : MonoBehaviour {
 
     public void SetScoreboard() {
         // TODO: Set if statements for user amount (Network related)
-        users = new List<GameObject> { username1, username2, username3, username4 };
+        userScores = new List<String> { username1.GetComponentInChildren<Text>().GetComponent<Text>().text, username2.GetComponentInChildren<Text>().GetComponent<Text>().text,
+                                        username3.GetComponentInChildren<Text>().GetComponent<Text>().text, username4.GetComponentInChildren<Text>().GetComponent<Text>().text };
         // TODO: Sort on score
+        userScores.Sort();
     }
 }

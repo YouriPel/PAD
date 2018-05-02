@@ -8,7 +8,7 @@ public class PlayerAnswer : MonoBehaviour {
 
     public void ClickAnswerButton(GameObject PlayerAnswerButton) {
         if (PlayerAnswerButton = gameStateManager.GetComponent<AnswerButton>().GetCorrectAnswerButton()) {
-            // TODO: Add point to score
+            gameStateManager.GetComponent<Scoreboard>().AddScore();
         }
     }
 }

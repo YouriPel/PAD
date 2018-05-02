@@ -41,6 +41,7 @@ public class SceneManager : MonoBehaviour {
         scoreScreen.SetActive(false);
     }
 
+    // TODO: Act when everyone filled in an answer
     public void ShowAnswerScreen() {
         mainMenu.SetActive(false);
         gameScreen.SetActive(true);
@@ -52,6 +53,7 @@ public class SceneManager : MonoBehaviour {
         scoreScreen.SetActive(false);
     }
 
+    // TODO: Act when everyone clicked an answer
     public void ShowScoreboard() {
         mainMenu.SetActive(false);
         gameScreen.SetActive(false);
