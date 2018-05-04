@@ -11,6 +11,7 @@ public class GameManagerScript : NetworkBehaviour {
 	public String antwoordText = "";
 	private GameObject antwoordObj;
 	// Use this for initialization
+	public int ID;
 	void Start ()
 	{
 		this.gameObject.SetActive (true);
@@ -24,8 +25,6 @@ public class GameManagerScript : NetworkBehaviour {
 
 	void OnChangeText(String answer)
 	{
-		print("answer: "+answer);
-		//antwoordText = playerAnswer;
 		antwoordObj.GetComponent<Text>().text = answer;
 	}
 }

@@ -165,7 +165,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1854227807671770, guid: a3037d5517e1a36459a7e1cda14d195c,
+  m_PlayerPrefab: {fileID: 1854227807671770, guid: eb29abdfb5409204ab56a75913bdc664,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
@@ -236,10 +236,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1269223160}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893155621
 GameObject:
@@ -301,7 +300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269223158
 GameObject:
@@ -328,10 +327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1269223158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf4d05c34bbfa148b32d926fbe94cd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 69bb641767b2eb44492e530673007821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   antwoordText: 
+  ID: 0
 --- !u!4 &1269223160
 Transform:
   m_ObjectHideFlags: 0
@@ -342,8 +342,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 227364586}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1269223161
 MonoBehaviour:
@@ -619,7 +619,7 @@ RectTransform:
   m_Children:
   - {fileID: 1889664892}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
