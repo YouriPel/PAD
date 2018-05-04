@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class Question : MonoBehaviour {
 
-    // TODO: Remove the Strings after the variables
-    public String question = "Hallo";
-    public String correctAnswer = "Goed";
-    
+    private String question;
+    private String correctAnswer;
     private int randomQuestionNumber;
-
     private List<int> totalQuestions;
 
     // TODO: Adjust to amount of questions in database

@@ -5,10 +5,16 @@ using UnityEngine;
 public class PlayerAnswer : MonoBehaviour {
 
     public GameObject gameStateManager;
+    public GameObject playerAnswerButton;
 
-    public void ClickAnswerButton(GameObject PlayerAnswerButton) {
-        if (PlayerAnswerButton = gameStateManager.GetComponent<AnswerButton>().GetCorrectAnswerButton()) {
+    public void ClickAnswerButton(GameObject playerAnswerButton) {
+        if (playerAnswerButton = gameStateManager.GetComponent<AnswerButton>().GetCorrectAnswerButton()) {
             gameStateManager.GetComponent<Scoreboard>().AddScore();
         }
+        this.playerAnswerButton = playerAnswerButton;
+    }
+
+    public GameObject GetPlayerAnswerButton() {
+        return playerAnswerButton;
     }
 }
