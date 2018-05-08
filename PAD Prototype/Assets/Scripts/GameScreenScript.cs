@@ -24,6 +24,7 @@ public class GameScreenScript : MonoBehaviour {
 	private String PlayerAnswer;
 
     string[] questionArray = new string[3];
+    string[] answerInfo = new string[3];
     public List<String> Answers = new List<String>();
 	public GameObject[] AnswerButtons = new GameObject[5];
 
@@ -37,16 +38,20 @@ public class GameScreenScript : MonoBehaviour {
 		gameStateScript = GameObject.Find ("GameStateManager").GetComponent<GameStateScript> ();
 
 		// Get all question and answers here
-		Answers.Add("15 minuten");
+		//Answers.Add("15 minuten");
         Answers.Add("12,2");
         Answers.Add("Vitamine B");
-        Answers.Add("900");
+        Answers.Add("450");
 
         questionArray[0] = "Trudy heeft een sappige mango. Hoeveel gram suiker bevat Trudy’s mango ?";
         questionArray[1] = "Jaap heeft een kater. Welke vitamine kan hij het beste nemen ?";
         questionArray[2] = "Jaap en Trudy hebben een date bij de McDonalds, ze bestellen beide een McChicken. Hoeveel calorieën krijgen ze totaal binnen ?";
 
-		UserInputScreen.SetActive(true);
+        answerInfo[0] = "Wanneer je mango’s eet krijg je helaas niet alleen maar goede stoffen binnen.\n Mango bevat namelijk ook 12,2 gram fruitsuiker (fructose) per portie van 82,5 gram.\n Fructose kan gewichtsverlies in de weg staan als je er te veel van binnenkrijgt.";
+        answerInfo[1] = "Vitamine B breekt alcohol af.\n Melkproducten, vleeswaren, groenten, fruit \nen graanproducten zitten er allemaal vol mee.";
+        answerInfo[2] = "Er zitten best veel calorieën in 1 portie.\n Zelfs als ze de McChicken delen krijgen \nze allebei nog steeds 225 calorieën binnen.";
+
+        UserInputScreen.SetActive(true);
 		AnswerScreen.SetActive(false);
 		QuestionText.SetActive(true);
 		QuestionAmountText.SetActive(true);
@@ -120,7 +125,8 @@ public class GameScreenScript : MonoBehaviour {
 		AnswerButtons[QuestionAmount].GetComponent<Image>().color = Color.green;
         //Shows the correct answerr
 
-		QuestionText.GetComponent<Text>().text = "Het goede antwoord was:\n\n" + Answers[QuestionAmount];
+		QuestionText.GetComponent<Text>().text = "Het goede antwoord was:\n\n" + Answers[QuestionAmount]
+            + "\n" + answerInfo[QuestionAmount];
 
 		StartCoroutine(NextCorrectAnswer());
 	}
