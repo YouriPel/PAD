@@ -8,35 +8,34 @@ using System;
 public class SpelerScript : NetworkBehaviour
 {
     public InputField playerInput;
-	public Text name;
-	private GameManagerScript gameManager;
+	//public Text objName;
+	//private GameManagerScript gameManager;
 
     void Start ()
-    {
-		this.transform.SetParent (GameObject.Find ("Canvas").transform);
-		this.GetComponent<RectTransform> ().localScale = new Vector2 (1, 1);
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
+	{
+			this.transform.SetParent (GameObject.Find ("Canvas").transform);
+			this.GetComponent<RectTransform> ().localScale = new Vector2 (1, 1);
+			//gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
 
-		name.text = "player " + gameManager.ID;
-		gameManager.ID++;
+			//objName.text = "player " + gameManager.ID;
+			//NetworkServer.AddPlayerForConnection (connectionToServer, this.gameObject, 0);
+			//gameManager.ID++;
+
     }
 
 	void Update(){
-		if (!isLocalPlayer)
-			return;
-
-		print ("isLocalPlayer: "+isLocalPlayer);
+		//print ("isLocalPlayer: "+isLocalPlayer);
 	}
 
-    public void SendAnswer()
+   /* public void SendAnswer()
     {
 		CmdSetAnswer(playerInput.text);
     }
 
 	[Command]
 	void CmdSetAnswer(String input){
-		gameManager.antwoordText = input;
-	}
+		//gameManager.antwoordText = input;
+	}*/
 
     
 }
