@@ -10,8 +10,8 @@ public class GameManagerScript : NetworkBehaviour {
 	[SyncVar(hook = "OnChangeText")]
 	public String antwoordText = "";
 	private GameObject antwoordObj;
+
 	// Use this for initialization
-	public int ID;
 	void Start ()
 	{
 		this.gameObject.SetActive (true);

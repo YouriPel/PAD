@@ -14,17 +14,17 @@ public class PlayerObjectScript : NetworkBehaviour {
 			return;
 		
 		this.transform.SetParent (GameObject.Find ("Canvas").transform);
-		this.transform.localScale = new Vector2 (1, 1);
+		this.transform.localScale = new Vector3 (1, 1, 1);
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
 
-		ClientScene.RegisterPrefab (playerPrefab);
+		//ClientScene.RegisterPrefab (playerPrefab);
 
 		//CmdSetObject ();
-		CmdSetObject ();
 
-		//ASSIGN SendAnswer() METHOD TO BUTTON CLICK
-
+		GameObject go = Instantiate (playerPrefab);
+		go.transform.SetParent (this.gameObject.transform);
 		Debug.Log ("INITIALIZE MY OWN PLAYER");
+
 	}
 	
 	// Update is called once per frame
@@ -33,19 +33,17 @@ public class PlayerObjectScript : NetworkBehaviour {
 		if (!hasAuthority)
 			return;
 	}
-
+	/*
 	[Command]
 	void CmdSetObject(){
 		GameObject go = Instantiate (playerPrefab);
 		go.transform.SetParent (this.gameObject.transform);
 
 		MyObject = go;
-		//MyObject.GetComponent<SpelerScript> ().sendButton.onClick.AddListener(SendAnswer);
-		NetworkServer.SpawnWithClientAuthority (go, connectionToClient);
-		//ClientScene.RegisterPrefab (go);
+		Debug.Log ("INITIALIZE MY OWN PLAYER");
 
-		//Debug.Log ("CmdSetObject: "+MyObject);
-	}
+		//NetworkServer.SpawnWithClientAuthority (go, connectionToClient);
+	}*/
 
 	[Command]
 	public void CmdSetAnswer(String input){

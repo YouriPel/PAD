@@ -21,12 +21,15 @@ public class SpelerScript : NetworkBehaviour
     }
 
 	void Update(){
-		if (!hasAuthority)
+		if (!isLocalPlayer)
 			return;
 	}
 
 	public void SendAnswer()
 	{
+		if (isLocalPlayer) {
+			print ("local player");
+		}
 		this.gameObject.transform.parent.GetComponent<PlayerObjectScript> ().CmdSetAnswer (playerInput.text);
 		Debug.Log ("tekst: "+playerInput.text);
 	}
