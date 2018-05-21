@@ -32,6 +32,7 @@ public class PlayerObjectScript : NetworkBehaviour {
 	void CmdSetObject(){
 		if(isLocalPlayer){
 			MyObject = go;
+			NetworkServer.Spawn (MyObject);
 			Debug.Log ("SET MYOBJECT");
 		}
 	}
