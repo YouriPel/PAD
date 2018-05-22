@@ -6,13 +6,17 @@ using UnityEngine.Networking;
 
 public class GameNetworkManager : NetworkManager {
 
+	private GameManagerScript gameManager;
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
+		Time.timeScale = 1f;
 	}
 	
 	public override void OnClientConnect(NetworkConnection connection){
 		print (connection.connectionId+" Connected!");
+		gameManager.count++;
+		print ("gameManager.count: "+gameManager.count);
 		//GameObject go = Instantiate (playerPrefab);
 		//go.transform.SetParent (GameObject.Find ("Canvas").transform);
 	}

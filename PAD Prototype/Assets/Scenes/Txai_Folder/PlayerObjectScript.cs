@@ -9,17 +9,18 @@ public class PlayerObjectScript : NetworkBehaviour {
 	public GameObject playerPrefab, MyObject;
 	private GameManagerScript gameManager;
 	// Use this for initialization
-	void Start () {
-		if (!isLocalPlayer)
-			return;
-		
+
+	void Awake(){
 		this.transform.SetParent (GameObject.Find ("Canvas").transform);
 		this.transform.localScale = new Vector3 (1, 1, 1);
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
+	}
 
-		//ClientScene.RegisterPrefab (playerPrefab);
+	void Start () {
+		if (!isLocalPlayer)
+			return;
 
-		//CmdSetObject ();
+		print ("ID: "+playerControllerId);
 
 		GameObject go = Instantiate (playerPrefab);
 		go.transform.SetParent (this.gameObject.transform);
@@ -33,17 +34,6 @@ public class PlayerObjectScript : NetworkBehaviour {
 		if (!hasAuthority)
 			return;
 	}
-	/*
-	[Command]
-	void CmdSetObject(){
-		GameObject go = Instantiate (playerPrefab);
-		go.transform.SetParent (this.gameObject.transform);
-
-		MyObject = go;
-		Debug.Log ("INITIALIZE MY OWN PLAYER");
-
-		//NetworkServer.SpawnWithClientAuthority (go, connectionToClient);
-	}*/
 
 	[Command]
 	public void CmdSetAnswer(String input){
