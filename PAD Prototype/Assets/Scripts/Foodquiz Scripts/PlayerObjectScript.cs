@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 using System;
 public class PlayerObjectScript : NetworkBehaviour {
 
+
+
 	public GameObject playerPrefab, MyObject;
 	//private GameManagerScript gameManager;
 
