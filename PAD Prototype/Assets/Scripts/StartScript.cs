@@ -19,11 +19,12 @@ public class StartScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        changeScale();
-        changeOpacity();
+        ChangeScale();
+        ChangeOpacity();
+		//CheckButtonInteractable ();
     }
 
-    void changeScale()
+    void ChangeScale()
     {
         if (GetComponent<Image>() == true && scaling == true)
         {
@@ -39,7 +40,7 @@ public class StartScript : MonoBehaviour
         }
     }
 
-    void changeOpacity()
+    void ChangeOpacity()
     {
         //Changes opacity
         opacity += opacitySpeed;
@@ -58,4 +59,12 @@ public class StartScript : MonoBehaviour
             opacitySpeed = 0;
         }
     }
+
+	//DEZE METHOD IS OM DE INTERACTABLE VAN DE BUTTON PAS TRUE TE ZETTEN ALS 
+	//DE OPACITY VAN DE KNOP VOLLEDIG IS.
+	/*
+	void CheckButtonInteractable(){
+		/if (GetComponent<Button> () && ) {
+		}
+	}*/
 }

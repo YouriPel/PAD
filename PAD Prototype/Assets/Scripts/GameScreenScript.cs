@@ -38,7 +38,7 @@ public class GameScreenScript : MonoBehaviour {
 		gameStateScript = GameObject.Find ("GameStateManager").GetComponent<GameStateScript> ();
 
 		// Get all question and answers here
-		//Answers.Add("15 minuten");
+		Answers.Add("15 minuten");
         Answers.Add("12,2");
         Answers.Add("Vitamine B");
         Answers.Add("450");

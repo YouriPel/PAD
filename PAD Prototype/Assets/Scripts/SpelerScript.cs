@@ -29,7 +29,7 @@ public class SpelerScript : NetworkBehaviour
 		if (isLocalPlayer) {
 			print ("local player");
 		}
-		this.gameObject.transform.parent.GetComponent<PlayerObjectScript> ().CmdSetAnswer (playerInput.text);
+		//this.gameObject.transform.parent.GetComponent<PlayerObjectScript> ().CmdSetAnswer (playerInput.text);
 		Debug.Log ("tekst: "+playerInput.text);
 	}
 

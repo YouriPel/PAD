@@ -7,16 +7,15 @@ using System;
 public class PlayerObjectScript : NetworkBehaviour {
 
 	public GameObject playerPrefab, MyObject;
-	private GameManagerScript gameManager;
-	// Use this for initialization
+	//private GameManagerScript gameManager;
 
 	void Awake(){
 		this.transform.SetParent (GameObject.Find ("Canvas").transform);
 		this.transform.localScale = new Vector3 (1, 1, 1);
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
+		//gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerScript> ();
 	}
 
-	void Start () {
+	/*void Start () {
 		if (!isLocalPlayer)
 			return;
 
@@ -37,7 +36,7 @@ public class PlayerObjectScript : NetworkBehaviour {
 
 	[Command]
 	public void CmdSetAnswer(String input){
-		gameManager.antwoordText = input;
+		//gameManager.antwoordText = input;
 		Debug.Log ("CmdSetAnswer: "+input);
-	}
+	}*/
 }
