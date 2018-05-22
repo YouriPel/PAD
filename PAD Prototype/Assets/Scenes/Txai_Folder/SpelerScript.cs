@@ -15,8 +15,7 @@ public class SpelerScript : NetworkBehaviour
     void Start ()
 	{
 		this.GetComponent<RectTransform> ().localScale = new Vector2 (1, 1);
-
-
+		
 		sendButton.onClick.AddListener(SendAnswer);
     }
 
