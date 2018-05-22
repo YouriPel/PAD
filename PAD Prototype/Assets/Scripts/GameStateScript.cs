@@ -21,6 +21,7 @@ public class GameStateScript : MonoBehaviour {
 		EndScreen.SetActive (false);
         AnswerScreen.SetActive(false);
         ScoreScreen.SetActive(false);
+        MySQL.mysql.MySQLInit();
     }
 
 	//Method for the startbutton
