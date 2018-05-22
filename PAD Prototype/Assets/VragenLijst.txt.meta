@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: ef0aa886e1bae2c44967eab2478632c9
-timeCreated: 1525727828
-=======
-guid: 8245d066f9db005478a023b8917b2503
+guid: 244464ff81c17c04abcf0114d74a2b4d
 timeCreated: 1525273535
->>>>>>> OOP
 licenseType: Free
 TextScriptImporter:
   externalObjects: {}
