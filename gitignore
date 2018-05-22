@@ -1,8 +1,8 @@
 # Created by https://www.gitignore.io/api/unity
 
 ### Unity ###
-*/Library/
-*/library/
+*Library/
+*library/
 */[Tt]emp/
 */[Oo]bj/
 */Assets/AssetStoreTools*
@@ -20,7 +20,6 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
-
 
 # Unity3D generated meta files
 *.pidb.meta
