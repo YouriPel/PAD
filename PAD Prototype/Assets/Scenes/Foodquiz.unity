@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 67395812}
   - component: {fileID: 67395811}
   - component: {fileID: 67395810}
+  - component: {fileID: 67395813}
   m_Layer: 5
   m_Name: ScoreScreen
   m_TagString: Untagged
@@ -565,6 +566,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &67395813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67395808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953bb797533ad704e954aa9a7817b22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: {fileID: 665991258}
 --- !u!1 &104348428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bb641767b2eb44492e530673007821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  names: []
+  name: 
   playerCounterObj: {fileID: 602935509}
   playerCounter: 0
 --- !u!114 &512047113
@@ -3357,6 +3370,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 522787586}
+        m_MethodName: UseNameButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2065867011}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1048212746
@@ -3574,6 +3598,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 522787586}
+        m_MethodName: UseNameButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2065867011}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

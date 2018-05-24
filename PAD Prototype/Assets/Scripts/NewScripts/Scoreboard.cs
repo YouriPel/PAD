@@ -6,17 +6,23 @@ using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour {
 
-    public InputField username;
+    public GameObject username;
 
     private int score;
     private String name;
+
+	private GameObject GameManagerObj;
+	private GameManagerScript GMScript;
 
     private readonly int CORRECT_ANSWER_POINT = 1;
     private readonly int RESET_SCORE = 0;
 
     public void Start() {
-        this.SetName(username.text);
-        this.ResetScore();
+		GameManagerObj = GameObject.Find ("GameManager");
+		GMScript = GameManagerObj.GetComponent<GameManagerScript> ();
+		username.GetComponent<Text>().text = GMScript.name;
+        //this.SetName(username.text);
+        //this.ResetScore();
     }
 
     public void AddScore() {

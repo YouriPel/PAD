@@ -15,6 +15,12 @@ public class WaitScreenScript : MonoBehaviour {
 	void Awake(){
 		GameManagerObj = GameObject.Find ("GameManager");
 		GMScript = GameManagerObj.GetComponent<GameManagerScript> ();
+
+	}
+
+	void Start(){
+
+		playerNames [0].GetComponent<Text>().text = GMScript.name;
 	}
 
     /*

@@ -8,7 +8,9 @@ using System;
 //game management stuff here
 public class GameManagerScript : MonoBehaviour {
 
-    public List<string> names;
+    //public List<string> names;
+
+	public String name;
 
     public GameObject playerCounterObj;
     private Text pcText;

@@ -27,7 +27,8 @@ public class LobbyScript : MonoBehaviour {
     
     
 	public void UseNameButton(InputField nameInput){
-		GMScript.names.Add (nameInput.text);
+		//GMScript.names.Add (nameInput.text);
+		GMScript.name = nameInput.text;
 	}
 
 }
