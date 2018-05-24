@@ -18,6 +18,9 @@ public class GameScreenScript : MonoBehaviour {
     public GameObject EndScreen;
     public GameObject ScoreScreen;
 
+    public AudioSource incorrectSound;
+    public AudioSource correctSound;
+
     public InputField PlayerInput;
 	public int TotalQuestionAmount;
 	public int QuestionAmount;
@@ -105,8 +108,18 @@ public class GameScreenScript : MonoBehaviour {
         StartCoroutine(ShowCorrectAnswer());
 	}
 
-
-
+    //Play sound
+    void playSound(String path)
+    {
+        if(path == "correct")
+        {
+            incorrectSound.Play();
+        }
+        else if (path == "incorrect")
+        {
+            correctSound.Play();
+        }
+    }
 
 	IEnumerator ShowCorrectAnswer()
 	{
@@ -120,7 +133,9 @@ public class GameScreenScript : MonoBehaviour {
 		for (int i = 0; i < AnswerButtons.Length; i++)
 		{
 			AnswerButtons[i].GetComponent<Image>().color = Color.red;
-		}
+            playSound("incorrect");
+
+        }
 		//Changes the color of the correct answer button to green
 		AnswerButtons[QuestionAmount].GetComponent<Image>().color = Color.green;
         //Shows the correct answerr
