@@ -13,7 +13,6 @@ public class GameScreenScript : MonoBehaviour {
 	public GameObject QuestionAmountText;
 	public GameObject UserInputScreen;
 	public GameObject AnswerScreen;
-    public GameObject MainMenu;
     public GameObject GameScreen;
     public GameObject EndScreen;
     public GameObject ScoreScreen;
@@ -38,7 +37,7 @@ public class GameScreenScript : MonoBehaviour {
 
 	void Start() {
 
-		gameStateScript = GameObject.Find ("GameStateManager").GetComponent<GameStateScript> ();
+		gameStateScript = GameObject.Find ("GameManager").GetComponent<GameStateScript> ();
 
 		// Get all question and answers here
 		Answers.Add("15 minuten");

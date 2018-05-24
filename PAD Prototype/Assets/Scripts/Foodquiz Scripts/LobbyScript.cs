@@ -8,13 +8,24 @@ public class LobbyScript : MonoBehaviour {
 
 	public InputField nameInput;
 	private GameObject GameManagerObj;
-	private GameManagerScript GMScript;
+	private GameStateScript GSScript;
+    private GameManagerScript GMScript;
 
-	void Awake(){
+    void Awake(){
 		GameManagerObj = GameObject.Find ("GameManager");
-		GMScript = GameManagerObj.GetComponent<GameManagerScript> ();
-	}
+        GSScript = GameManagerObj.GetComponent<GameStateScript> ();
+        GMScript = GameManagerObj.GetComponent<GameManagerScript>();
 
+    }
+
+    public void GoToWaitScreen()
+    {
+        GMScript.playerCounter++;
+        GSScript.WaitScreen.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+    
+    
 	public void UseNameButton(InputField nameInput){
 		GMScript.names.Add (nameInput.text);
 	}
