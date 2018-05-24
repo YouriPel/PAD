@@ -1,20 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class GameNetworkManager : NetworkManager {
-    
+
+	// Use this for initialization
 	private string ip;
 	bool isHosting;
 
-
-
 	void Awake () {
 		Time.timeScale = 1f;
+		DontDestroyOnLoad (this.gameObject);
 
 		NetworkManager.singleton = this;
 	}
@@ -56,8 +55,31 @@ public class GameNetworkManager : NetworkManager {
 		isHosting = false;
 	}
 
-    ///============================ ADDING LISTENERS TO HOST AND JOIN BUTTON ==========================\\
-    public void SetupLobbyButtons(){
+	//============================ SCENE MANAGEMENT CODE==========================\\
+
+	void OnEnable(){
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+		switch (scene.buildIndex) {
+			case 0:
+			{
+				print ("menu loaded");
+				break;
+			}
+			case 1:
+			{
+				print ("foodquiz loaded");
+				SetupLobbyButtons ();
+				break;
+			}
+		}
+	}
+
+
+	///============================ ADDING LISTENERS TO HOST AND JOIN BUTTON ==========================\\
+	void SetupLobbyButtons(){
 		//removelistener is om de list te refreshen als het spel opnieuw gespeeld word
 		//Anders heb je een listener met geen script erin, dus krijg je errors
 		GameObject.Find ("HostButton").GetComponent<Button> ().onClick.RemoveAllListeners ();

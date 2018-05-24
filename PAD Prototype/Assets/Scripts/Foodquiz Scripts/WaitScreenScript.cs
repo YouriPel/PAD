@@ -17,12 +17,11 @@ public class WaitScreenScript : MonoBehaviour {
 		GMScript = GameManagerObj.GetComponent<GameManagerScript> ();
 	}
 
-    /*
 	void Update(){
 		for (int i = 0; i < GMScript.names.Count; i++) {
 			Text playerName = playerNames [i].GetComponent<Text> ();
 			playerName.text = GMScript.names[i];
 		}
-	}*/
+	}
 
 }

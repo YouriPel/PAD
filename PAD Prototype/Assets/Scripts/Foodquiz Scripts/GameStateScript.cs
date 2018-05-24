@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStateScript : MonoBehaviour {
-    
+
+	//CODE NOG NETTER, INHERITANCE??
 	[Header("Gamestates")]
 	public GameObject Lobby;
 	public GameObject WaitScreen;
@@ -25,18 +26,6 @@ public class GameStateScript : MonoBehaviour {
 		Lobby.SetActive(false);
 		WaitScreen.SetActive (true);
 	}
-
-    public void BackButton()
-    {
-        Lobby.SetActive(true);
-        WaitScreen.SetActive(false);
-    }
-
-    public void playButton()
-    {
-        WaitScreen.SetActive(false);
-        GameScreen.SetActive(true);
-    }
 
 	/*
 	//Method for the back to main menu button
