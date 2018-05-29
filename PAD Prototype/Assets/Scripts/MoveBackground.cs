@@ -33,7 +33,6 @@ public class MoveBackground : MonoBehaviour
         if (col.gameObject.name == "FrontCollider")
         {
             this.transform.position = startPos;
-            print(startPos.ToString());
         }
     }
 }

@@ -14,13 +14,23 @@ public class StartScript : MonoBehaviour
     private float scale;
     private float opacity;
 
+	private bool opacityDone, scalingDone;
+
     public bool scaling;
-	
+
+	void Start(){
+		opacityDone = false;
+		scalingDone = false;
+	}
+
 	// Update is called once per frame
 	void Update ()
     {
-        ChangeScale();
-        ChangeOpacity();
+		if(!scalingDone)
+        	ChangeScale();
+		
+		if(!opacityDone)
+        	ChangeOpacity();
 		//CheckButtonInteractable ();
     }
 
@@ -36,6 +46,7 @@ public class StartScript : MonoBehaviour
             if (scale > 1)
             {
                 scalingSpeed = 0;
+				scalingDone = true;
             }
         }
     }
@@ -57,6 +68,7 @@ public class StartScript : MonoBehaviour
         if (opacity > 1)
         {
             opacitySpeed = 0;
+			opacityDone = true;
         }
     }
 

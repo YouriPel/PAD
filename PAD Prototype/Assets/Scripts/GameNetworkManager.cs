@@ -24,6 +24,10 @@ public class GameNetworkManager : NetworkManager {
 		print (connection.connectionId + " connected");
 	}
 
+	public override void OnClientDisconnect(NetworkConnection connection){
+		print (connection.connectionId + " disconnected");
+	}
+
 
 	//================ HOST AND JOIN BUTTON METHODS ==================\\
 	public void StartupHost(){
@@ -31,6 +35,10 @@ public class GameNetworkManager : NetworkManager {
 		ip = Network.player.ipAddress;
 		NetworkManager.singleton.StartHost ();
 		isHosting = true;
+
+		GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.RemoveAllListeners ();
+		GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.AddListener (StopGameHost);
+		print ("startuphost");
 	}
 
 	public void JoinGame(){
@@ -40,6 +48,7 @@ public class GameNetworkManager : NetworkManager {
 			NetworkManager.singleton.StartClient ();
 		} else {
 			print ("PLACEHOLDER TEKST:: ER IS GEEN GAME GEHOST!");
+			return;
 		}
 	}
 
@@ -54,6 +63,7 @@ public class GameNetworkManager : NetworkManager {
 	public void StopGameHost(){
 		NetworkManager.singleton.StopHost ();
 		isHosting = false;
+		print ("stopgamehost");
 	}
 
     ///============================ ADDING LISTENERS TO HOST AND JOIN BUTTON ==========================\\
@@ -66,7 +76,6 @@ public class GameNetworkManager : NetworkManager {
 		GameObject.Find ("JoinButton").GetComponent<Button> ().onClick.RemoveAllListeners ();
 		GameObject.Find ("JoinButton").GetComponent<Button> ().onClick.AddListener (JoinGame);
 
-		//GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.AddListener (StopGameHost);
 	}
 	/*
 	void SetupOtherSceneButton(){

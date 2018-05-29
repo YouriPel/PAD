@@ -37,10 +37,10 @@ public class GameScreenScript : MonoBehaviour {
 		gameStateScript = GameObject.Find ("GameManager").GetComponent<GameStateScript> ();
 
 		// Get all question and answers here
-		Answers.Add("15 minuten");
-        Answers.Add("12,2");
-        Answers.Add("Vitamine B");
-        Answers.Add("450");
+		Answers.Add("Antwoord 1");
+		Answers.Add("Antwoord 2");
+		Answers.Add("Antwoord 3");
+		Answers.Add("Antwoord 4");
 
         questionArray[0] = "Trudy heeft een sappige mango. Hoeveel gram suiker bevat Trudy’s mango ?";
         questionArray[1] = "Jaap heeft een kater. Welke vitamine kan hij het beste nemen ?";

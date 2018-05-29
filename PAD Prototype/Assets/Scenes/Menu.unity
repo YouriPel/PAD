@@ -575,7 +575,7 @@ Prefab:
     - target: {fileID: 224683494693619426, guid: 6308d8e8f93aa954a925f399acea11ed,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -2240
+      value: -2241.8398
       objectReference: {fileID: 0}
     - target: {fileID: 224683494693619426, guid: 6308d8e8f93aa954a925f399acea11ed,
         type: 2}
@@ -616,6 +616,26 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 61276654701908822, guid: 6308d8e8f93aa954a925f399acea11ed,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.3292694
+      objectReference: {fileID: 0}
+    - target: {fileID: 61276654701908822, guid: 6308d8e8f93aa954a925f399acea11ed,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 99.307495
+      objectReference: {fileID: 0}
+    - target: {fileID: 61276654701908822, guid: 6308d8e8f93aa954a925f399acea11ed,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 2.197154
+      objectReference: {fileID: 0}
+    - target: {fileID: 61276654701908822, guid: 6308d8e8f93aa954a925f399acea11ed,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 57.623833
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6308d8e8f93aa954a925f399acea11ed, type: 2}
@@ -790,7 +810,7 @@ Prefab:
     - target: {fileID: 224153544943017610, guid: 7ba12f4756404c242a02b8c7f013b1a5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -1.4
+      value: 85.599976
       objectReference: {fileID: 0}
     - target: {fileID: 224153544943017610, guid: 7ba12f4756404c242a02b8c7f013b1a5,
         type: 2}
@@ -840,12 +860,12 @@ Prefab:
     - target: {fileID: 61692646005262416, guid: 7ba12f4756404c242a02b8c7f013b1a5,
         type: 2}
       propertyPath: m_Offset.y
-      value: 0.014164925
+      value: -0.43551588
       objectReference: {fileID: 0}
     - target: {fileID: 61692646005262416, guid: 7ba12f4756404c242a02b8c7f013b1a5,
         type: 2}
       propertyPath: m_Size.y
-      value: 14.245239
+      value: 15.144601
       objectReference: {fileID: 0}
     - target: {fileID: 61692646005262416, guid: 7ba12f4756404c242a02b8c7f013b1a5,
         type: 2}
@@ -915,7 +935,7 @@ Prefab:
     - target: {fileID: 224480671974554238, guid: 7ecb578c7f12465408961765770bc66e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 1579
+      value: 1666
       objectReference: {fileID: 0}
     - target: {fileID: 224480671974554238, guid: 7ecb578c7f12465408961765770bc66e,
         type: 2}
@@ -1107,7 +1127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalingSpeed: 0
-  opacitySpeed: 0.005
+  opacitySpeed: 0.01
   scaling: 0
 --- !u!1001 &1160903808
 Prefab:
@@ -1344,7 +1364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalingSpeed: 0
-  opacitySpeed: 0.005
+  opacitySpeed: 0.01
   scaling: 0
 --- !u!1 &1512105544
 GameObject:
@@ -1380,7 +1400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2240}
+  m_AnchoredPosition: {x: 0, y: -2241.8398}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1512105546
@@ -1417,7 +1437,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.197154, y: 0.3292694}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1428,7 +1448,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 57.623833, y: 99.307495}
   m_EdgeRadius: 0
 --- !u!224 &1712749575 stripped
 RectTransform:

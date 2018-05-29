@@ -17,13 +17,13 @@ public class SceneManagerScript : MonoBehaviour {
         {
             case 0:
                 {
-                    print("menu loaded");
+                    //print("menu loaded");
                     break;
                 }
             case 1:
                 {
-                    print("foodquiz loaded");
-                    //GameObject.Find("NetworkManager").GetComponent<GameNetworkManager>().SetupLobbyButtons();
+                   // print("foodquiz loaded");
+                    GameObject.Find("NetworkManager").GetComponent<GameNetworkManager>().SetupLobbyButtons();
                     break;
                 }
         }
