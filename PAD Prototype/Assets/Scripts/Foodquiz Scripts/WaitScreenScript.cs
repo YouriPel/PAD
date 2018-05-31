@@ -20,15 +20,15 @@ public class WaitScreenScript : MonoBehaviour {
 
 	void Start(){
 
-		playerNames [0].GetComponent<Text>().text = GMScript.name;
+		//playerNames [0].GetComponent<Text>().text = GMScript.name;
 	}
 
-    /*
+    
 	void Update(){
 		for (int i = 0; i < GMScript.names.Count; i++) {
 			Text playerName = playerNames [i].GetComponent<Text> ();
 			playerName.text = GMScript.names[i];
 		}
-	}*/
+	}
 
 }

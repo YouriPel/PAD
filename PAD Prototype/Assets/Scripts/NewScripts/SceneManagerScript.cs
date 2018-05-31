@@ -22,7 +22,8 @@ public class SceneManagerScript : MonoBehaviour {
                 }
             case 1:
                 {
-                   // print("foodquiz loaded");
+                    // print("foodquiz loaded");
+                    this.transform.parent.GetComponent<GameGodScript>().activateObj = true;
                     GameObject.Find("NetworkManager").GetComponent<GameNetworkManager>().SetupLobbyButtons();
                     break;
                 }

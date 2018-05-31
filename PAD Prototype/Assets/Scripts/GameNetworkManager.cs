@@ -9,9 +9,6 @@ using UnityEngine.Networking;
 public class GameNetworkManager : NetworkManager {
     
 	private string ip;
-	bool isHosting;
-
-
 
 	void Awake () {
 		Time.timeScale = 1f;
@@ -19,8 +16,15 @@ public class GameNetworkManager : NetworkManager {
 		NetworkManager.singleton = this;
 	}
 
+    /*void Update()
+    {
+        if (this.transform.parent.GetComponent<GameGodScript>().activateObj)
+        {
+            NetworkServer.Spawn(GameObject.Find("GameManager"));
+        }
+    }*/
 
-	public override void OnClientConnect(NetworkConnection connection){
+    public override void OnClientConnect(NetworkConnection connection){
 		print (connection.connectionId + " connected");
 	}
 
@@ -32,37 +36,35 @@ public class GameNetworkManager : NetworkManager {
 	//================ HOST AND JOIN BUTTON METHODS ==================\\
 	public void StartupHost(){
 		SetPort ();
-		ip = Network.player.ipAddress;
+		//ip = Network.player.ipAddress;
 		NetworkManager.singleton.StartHost ();
-		isHosting = true;
 
 		GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.RemoveAllListeners ();
 		GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.AddListener (StopGameHost);
-		print ("startuphost");
+		print ("HOST ip: "+ip);
 	}
 
 	public void JoinGame(){
-		if (isHosting) {
-			SetIPAdress ();
-			SetPort ();
-			NetworkManager.singleton.StartClient ();
-		} else {
-			print ("PLACEHOLDER TEKST:: ER IS GEEN GAME GEHOST!");
-			return;
-		}
-	}
+		SetIPAdress ();
+		SetPort ();
+		NetworkManager.singleton.StartClient ();
+        Debug.Log("isNetworkActive: " + isNetworkActive);
+        print("CLIENT ip: " + ip);
+
+        NetworkServer.Spawn(GameObject.Find("GameManager"));
+    }
 
 	void SetPort(){
 		NetworkManager.singleton.networkPort = 7777;
 	}
 
 	void SetIPAdress (){
+        ip = "127.0.0.1";
 		NetworkManager.singleton.networkAddress = ip;
 	}
 		
 	public void StopGameHost(){
 		NetworkManager.singleton.StopHost ();
-		isHosting = false;
 		print ("stopgamehost");
 	}
 

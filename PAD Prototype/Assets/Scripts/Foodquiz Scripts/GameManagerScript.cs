@@ -6,12 +6,12 @@ using UnityEngine;
 using System;
 
 //game management stuff here
-public class GameManagerScript : MonoBehaviour {
+public class GameManagerScript : NetworkBehaviour {
+    
 
-    //public List<string> names;
-
-	public String name;
-
+    public SyncListString names = new SyncListString();
+    
+    
     public GameObject playerCounterObj;
     private Text pcText;
     
@@ -20,7 +20,6 @@ public class GameManagerScript : MonoBehaviour {
 
 	void Start(){
         pcText = playerCounterObj.GetComponent<Text>();
-
     }	
 
     void OnCounterChange(int count)
