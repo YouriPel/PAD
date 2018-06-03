@@ -7,20 +7,20 @@ using System;
 public class LobbyScript : MonoBehaviour {
 
 	public InputField nameInput;
-	private GameObject GameManagerObj;
+	private GameObject GameManagerObj, GameStateObj;
 	private GameStateScript GSScript;
     private GameManagerScript GMScript;
 
     void Awake(){
 		GameManagerObj = GameObject.Find ("GameManager");
-        GSScript = GameManagerObj.GetComponent<GameStateScript> ();
+        GameStateObj = GameObject.Find("GameStateManager");
+        GSScript = GameStateObj.GetComponent<GameStateScript> ();
         GMScript = GameManagerObj.GetComponent<GameManagerScript>();
 
     }
 
     public void GoToWaitScreen()
     {
-        GMScript.playerCounter++;
         GSScript.WaitScreen.SetActive(true);
         this.gameObject.SetActive(false);
     }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Networking;
 
-public class WaitScreenScript : MonoBehaviour {
+public class WaitScreenScript : NetworkBehaviour{
 
 	private GameObject GameManagerObj;
 	private GameManagerScript GMScript;
@@ -13,10 +14,11 @@ public class WaitScreenScript : MonoBehaviour {
 	public GameObject[] playerNames = new GameObject[4];
 
 	void Awake(){
-		GameManagerObj = GameObject.Find ("GameManager");
-		GMScript = GameManagerObj.GetComponent<GameManagerScript> ();
+		//GameManagerObj = FindObjectOfType<GameManagerScript>();
+        GMScript = FindObjectOfType<GameManagerScript>();
+        //GMScript.gameObject.SetActive(true);
 
-	}
+    }
 
 	void Start(){
 

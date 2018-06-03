@@ -10,20 +10,8 @@ public class GameManagerScript : NetworkBehaviour {
     
 
     public SyncListString names = new SyncListString();
-    
-    
-    public GameObject playerCounterObj;
-    private Text pcText;
-    
-    //[SyncVar(hook = "OnCounterChange")]
-    public int playerCounter;
 
 	void Start(){
-        pcText = playerCounterObj.GetComponent<Text>();
     }	
-
-    void OnCounterChange(int count)
-    {
-        pcText.text = ""+count;
-    }
+    
 }

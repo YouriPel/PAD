@@ -12,8 +12,9 @@ public class GameNetworkManager : NetworkManager {
 
 	void Awake () {
 		Time.timeScale = 1f;
+        ip = "127.0.0.1";
 
-		NetworkManager.singleton = this;
+        NetworkManager.singleton = this;
 	}
 
     /*void Update()
@@ -26,7 +27,9 @@ public class GameNetworkManager : NetworkManager {
 
     public override void OnClientConnect(NetworkConnection connection){
 		print (connection.connectionId + " connected");
-	}
+        ClientScene.Ready(connection);
+        ClientScene.AddPlayer(0);
+    }
 
 	public override void OnClientDisconnect(NetworkConnection connection){
 		print (connection.connectionId + " disconnected");
@@ -38,8 +41,7 @@ public class GameNetworkManager : NetworkManager {
 		SetPort ();
 		//ip = Network.player.ipAddress;
 		NetworkManager.singleton.StartHost ();
-
-		GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.RemoveAllListeners ();
+        GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.RemoveAllListeners ();
 		GameObject.Find ("TerugButton").GetComponent<Button> ().onClick.AddListener (StopGameHost);
 		print ("HOST ip: "+ip);
 	}
@@ -59,7 +61,6 @@ public class GameNetworkManager : NetworkManager {
 	}
 
 	void SetIPAdress (){
-        ip = "127.0.0.1";
 		NetworkManager.singleton.networkAddress = ip;
 	}
 		
