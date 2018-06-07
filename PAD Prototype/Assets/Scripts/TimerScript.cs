@@ -24,7 +24,11 @@ public class TimerScript : MonoBehaviour
 	void Update ()
     {
         size = transform.localScale;
+
+        //Changes y size 
         size.y -= Time.deltaTime * speed;
+
+        //If size is above 0, continue changing y size
         if(size.y > 0)
         {
             transform.localScale = size;
