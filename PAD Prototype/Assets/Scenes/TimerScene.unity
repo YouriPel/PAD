@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 504722396}
-  speed: 4
+  speed: 10
   colorGreen: {r: 0.54509807, g: 0.9882353, b: 0.10980392, a: 1}
   colorRed: {r: 0.9882353, g: 0.14509805, b: 0.10980392, a: 1}
 --- !u!114 &504722399
