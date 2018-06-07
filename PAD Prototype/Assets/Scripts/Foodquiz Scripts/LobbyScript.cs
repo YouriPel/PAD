@@ -40,7 +40,10 @@ public class LobbyScript : MonoBehaviour
     {
         if(playerCount < 4)
         {
-            gameManagerScript.playerNamen[playerCount] = playerInput.text;
+            if(playerInput.text != "")
+            {
+                gameManagerScript.playerNamen[playerCount] = playerInput.text;
+            }
         }
 
 		if(playerCount == 4)
