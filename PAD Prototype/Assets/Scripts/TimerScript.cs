@@ -16,20 +16,22 @@ public class TimerScript : MonoBehaviour
     public Color colorGreen;
     public Color colorRed;
 
+    //Determines the smoothness of the lerp. Smaller values are smoother.
+    float smoothness = 0.02f;
+    //This float will serve as the 3rd parameter of the lerp function
+    float progress = 0; 
+
     void Start ()
     {
         StartCoroutine("ChangeColor");
     }
 
-    //Determines the smoothness of the lerp. Smaller values are smoother.
-    float smoothness = 0.02f; 
     IEnumerator ChangeColor()
     {
-        float progress = 0; //This float will serve as the 3rd parameter of the lerp function
         while(progress < 1)
         {
             GetComponent<RawImage>().color = Color.Lerp(colorGreen, colorRed, progress);
-            progress += (smoothness / speed); //The amount of change to apply
+            progress += (smoothness / (speed / 2)); //The amount of change to apply
             yield return new WaitForSeconds(smoothness);
         }
     }
@@ -44,7 +46,7 @@ public class TimerScript : MonoBehaviour
         size = transform.localScale;
 
         //Changes y size 
-        size.y -= Time.deltaTime * (speed / 40);
+        size.y -= Time.deltaTime * (speed / 100);
 
         //If size is above 0, continue changing y size
         if (size.y > 0)
