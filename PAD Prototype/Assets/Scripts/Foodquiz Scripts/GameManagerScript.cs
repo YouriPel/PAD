@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour {
 
-	public string[] playerNamen = new string[4];
+	public string[] playerName = new string[4];
+	public string[] answer = new string[4];
+	public int[] score = new int[4];
 	// Use this for initialization
 	void Start () {
 		

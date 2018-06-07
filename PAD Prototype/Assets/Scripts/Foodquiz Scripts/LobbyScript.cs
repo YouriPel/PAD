@@ -42,7 +42,7 @@ public class LobbyScript : MonoBehaviour
         {
             if(playerInput.text != "")
             {
-                gameManagerScript.playerNamen[playerCount] = playerInput.text;
+                gameManagerScript.playerName[playerCount] = playerInput.text;
             }
         }
 

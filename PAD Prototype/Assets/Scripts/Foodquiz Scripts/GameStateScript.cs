@@ -8,14 +8,12 @@ public class GameStateScript : MonoBehaviour {
 	public GameObject Lobby;
 	public GameObject GameScreen;
 	public GameObject EndScreen;
-    public GameObject AnswerScreen;
     public GameObject ScoreScreen;
 
 	void Start () {
 		Lobby.SetActive(true);
 		GameScreen.SetActive (false);
 		EndScreen.SetActive (false);
-        AnswerScreen.SetActive(false);
         ScoreScreen.SetActive(false);
     }
 
