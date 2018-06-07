@@ -10,6 +10,7 @@ public class GameScreenScript : MonoBehaviour {
 	public GameStateScript gameStateScript;
 	public GameObject spelerButtons, answerButtons;
 	public GameManagerScript gameManagerScript;
+    public ScoreboardScript scoreboardScript;
 	private Text questionText;
 	public Text[] spelerButtonText = new Text[4];
 	public Text[] answerButtonText = new Text[4];
@@ -44,6 +45,7 @@ public class GameScreenScript : MonoBehaviour {
 			gameManagerScript.score [playerid] += score;
 			this.gameObject.SetActive (false);
 			gameStateScript.ScoreScreen.SetActive (true);
+            scoreboardScript.SetScoreboard();
 
 		} else {
 			answerButtons.SetActive (false);
