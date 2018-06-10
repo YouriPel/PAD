@@ -2043,8 +2043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a84b0783e679448913b6a180e2bbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasShareObj: {fileID: 0}
-  spelerText: {fileID: 0}
+  CanvasShareObj: {fileID: 66202701}
+  spelerText: {fileID: 779461261}
 --- !u!1 &779461258
 GameObject:
   m_ObjectHideFlags: 0

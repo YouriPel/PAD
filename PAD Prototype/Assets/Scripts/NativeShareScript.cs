@@ -33,15 +33,17 @@ public class NativeShareScript : MonoBehaviour
     IEnumerator ShareScreenshot()
     {
         isProccesing = true;
-        print("isProccesing " + isProccesing);
+        spelerText.text = "isProccesing " + isProccesing;
 
         yield return new WaitForEndOfFrame();
         //Captures screenshot, with filename and size
         ScreenCapture.CaptureScreenshot("screenshot.png", 1);
-        //                                Unity persistentDataPath
-        string destination = Path.Combine(Application.persistentDataPath, "screenshot.png");
-        print(destination);
 
+        //                                Unity persistentDataPath
+
+        string destination = Path.Combine(Application.persistentDataPath, "screenshot.png");
+        spelerText.text = (destination);
+        
         //Waits till the screenshot is actually saved
         yield return new WaitForSecondsRealtime(0.3f);
 
@@ -56,19 +58,19 @@ public class NativeShareScript : MonoBehaviour
             AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent");
 
             intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
-            spelerText.text = "ACTION_SEND";
+            //spelerText.text = "ACTION_SEND";
             AndroidJavaClass uriClass = new AndroidJavaClass("android.net.Uri");
             AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse", "file://" + destination);
-            spelerText.text = "parse destination";
+            //spelerText.text = "parse destination";
             intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), 
                 uriObject);
-            spelerText.text = "EXTRA_STREAM";
+            //spelerText.text = "EXTRA_STREAM";
             intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"),
                 "Can you beat my score?");
-            spelerText.text = "EXTRA_TEXT";
+            //spelerText.text = "EXTRA_TEXT";
             //Intent to share an image
             intentObject.Call<AndroidJavaObject>("setType", "image/jpeg");
-            spelerText.text = "setType image jpeg";
+            //spelerText.text = "setType image jpeg";
            
 
 
@@ -76,13 +78,13 @@ public class NativeShareScript : MonoBehaviour
             AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.Unityplayer");//just the class
             //Get the current activity object
             AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
-            spelerText.text = "currentActivity";
+            //spelerText.text = "currentActivity";
 
             //Creates chooser where you can pick which app you want to share on
             AndroidJavaObject chooser = intentClass.CallStatic<AndroidJavaObject>("createChooser",
                 intentObject, "Share your new score");
             currentActivity.Call("startActivity", chooser);
-            spelerText.text = "chooser";
+            //spelerText.text = "chooser";
 
             yield return new WaitForSecondsRealtime(1);
         }
@@ -90,12 +92,12 @@ public class NativeShareScript : MonoBehaviour
         yield return new WaitUntil(() => isFocus);
         //CanvasShareObj.SetActive(false);
         isProccesing = false;
-        print("isProccesing " + isProccesing);
+        //spelerText.text = "isProccesing " + isProccesing;
     }
 
     private void OnApplicationFocus(bool focus)
     {
         isFocus = focus;
-        print("isFocus " + isFocus);
+        //spelerText.text = isFocus " + isFocus";
     }
 }
