@@ -16,6 +16,8 @@ public class LobbyScript : MonoBehaviour
     private GameObject gameStateObj;
 	private GameManagerScript gameManagerScript;
 	private GameStateScript gameStateScript;
+    private Player playerScript;
+    public ScoreboardScript scoreboardScript;
 	private int playerCount;
 
     void Awake()
@@ -42,7 +44,7 @@ public class LobbyScript : MonoBehaviour
         {
             if(playerInput.text != "")
             {
-                gameManagerScript.playerName[playerCount] = playerInput.text;
+                scoreboardScript.AddPlayer(playerInput.text);
             }
         }
 

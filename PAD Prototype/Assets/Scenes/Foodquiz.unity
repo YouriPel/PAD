@@ -578,19 +578,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c424335ba7f2d4c42b339d926a7239ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerScript: {fileID: 512047110}
-  scores: 00000000000000000000000000000000
-  personScores: 00000000000000000000000000000000
-  names:
+  playerScript: {fileID: 512047112}
+  players: []
+  nameText:
   - {fileID: 665991260}
   - {fileID: 300060719}
   - {fileID: 826149606}
   - {fileID: 2056297204}
-  persons:
-  - {fileID: 624024692}
-  - {fileID: 1347080671}
-  - {fileID: 1334264123}
-  - {fileID: 1510874021}
+  scoreText:
+  - {fileID: 965303955}
+  - {fileID: 1702803551}
+  - {fileID: 374097029}
+  - {fileID: 1113370921}
+  playerId: 0
+  counter: 0
 --- !u!1 &98524636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,12 +1012,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 522787586}
-        m_MethodName: InsertPlayerName
-        m_Mode: 2
+      - m_Target: {fileID: 771330284}
+        m_MethodName: EndScoreBoard
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2065867011}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1141,6 +1142,7 @@ GameObject:
   - component: {fileID: 512047111}
   - component: {fileID: 512047113}
   - component: {fileID: 512047110}
+  - component: {fileID: 512047112}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1183,6 +1185,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512047112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512047109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acecd98c89ff55540bec05a1a44b4491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  score: 0
+  playerId: 0
 --- !u!114 &512047113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,6 +1274,7 @@ MonoBehaviour:
   speler2Text: {fileID: 1523756940}
   speler3Text: {fileID: 895110330}
   speler4Text: {fileID: 44666555}
+  scoreboardScript: {fileID: 67395813}
 --- !u!1 &546138253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,8 +1396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acecd98c89ff55540bec05a1a44b4491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 12
-  username: 
+  name: 
+  score: 0
+  playerId: 0
 --- !u!1 &631075614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,8 +1894,10 @@ MonoBehaviour:
   gameStateScript: {fileID: 512047113}
   spelerButtons: {fileID: 644673191}
   answerButtons: {fileID: 1903879189}
+  scoreboardScreen: {fileID: 0}
   gameManagerScript: {fileID: 512047110}
   scoreboardScript: {fileID: 67395813}
+  players: []
   spelerButtonText:
   - {fileID: 1282599749}
   - {fileID: 1005428966}
@@ -2967,8 +2987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acecd98c89ff55540bec05a1a44b4491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1235
-  username: 
+  name: 
+  score: 0
+  playerId: 0
 --- !u!1 &1346429156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,8 +3111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acecd98c89ff55540bec05a1a44b4491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 444
-  username: 
+  name: 
+  score: 0
+  playerId: 0
 --- !u!1 &1400002183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,8 +3465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acecd98c89ff55540bec05a1a44b4491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 4
-  username: 
+  name: 
+  score: 0
+  playerId: 0
 --- !u!1 &1523756938
 GameObject:
   m_ObjectHideFlags: 0

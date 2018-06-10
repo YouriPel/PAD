@@ -7,6 +7,7 @@ public class GameManagerScript : MonoBehaviour {
 	public string[] playerName = new string[4];
 	public string[] answer = new string[4];
 	public int[] score = new int[4];
+    public Dictionary<string, int> person = new Dictionary<string, int>();
 
 	// Use this for initialization
 	void Start () {
