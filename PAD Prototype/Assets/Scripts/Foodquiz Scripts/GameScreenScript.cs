@@ -45,14 +45,14 @@ public class GameScreenScript : MonoBehaviour {
 	public void ClickAnswerButton (bool correctAnswer){
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
-		if (correctAnswer) {
+		if (correctAnswer) { //if the answer is correct
             //Transision polising
             scoreboardScript.GetPlayer(playerid).UpdateScore();
 			//gameManagerScript.score [playerid] += score;
 			this.gameObject.SetActive (false);
 			gameStateScript.ScoreScreen.SetActive (true);
             scoreboardScript.SetScoreboard();
-		} else {
+		} else {//if the answer is not correct
 			answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
 			spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
@@ -63,6 +63,11 @@ public class GameScreenScript : MonoBehaviour {
 	}	
 
     public void EndScoreBoard() {
+        for(int i=0; i<spelerButtonText.Length; i++)
+        {
+            spelerButtonText[i].transform.parent.gameObject.SetActive(true);
+        }
+
         gameStateScript.ScoreScreen.SetActive(false);
         gameStateScript.GameScreen.SetActive(true);
         answerButtons.SetActive(false);

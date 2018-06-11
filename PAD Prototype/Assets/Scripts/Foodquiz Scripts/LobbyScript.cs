@@ -78,7 +78,7 @@ public class LobbyScript : MonoBehaviour
                 default:
                     break;
             }
-            playerInput.text = "";
         }
-	}
+        playerInput.text = "";
+    }
 }
