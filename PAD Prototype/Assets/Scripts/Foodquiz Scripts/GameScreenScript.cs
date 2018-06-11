@@ -24,6 +24,7 @@ public class GameScreenScript : MonoBehaviour {
     void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
+
 		//Gives player name to button
 		for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
@@ -54,7 +55,7 @@ public class GameScreenScript : MonoBehaviour {
 		} else {
 			answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
-			spelerButtonText [playerid].transform.parent.gameObject.SetActive (false);
+			spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
 			print ("currentPlayerId: "+playerid);
 			currentPlayerId = -1;
 		}

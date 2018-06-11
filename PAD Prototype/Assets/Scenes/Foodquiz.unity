@@ -1894,7 +1894,7 @@ MonoBehaviour:
   gameStateScript: {fileID: 512047113}
   spelerButtons: {fileID: 644673191}
   answerButtons: {fileID: 1903879189}
-  scoreboardScreen: {fileID: 0}
+  scoreboardScreen: {fileID: 67395808}
   gameManagerScript: {fileID: 512047110}
   scoreboardScript: {fileID: 67395813}
   players: []
