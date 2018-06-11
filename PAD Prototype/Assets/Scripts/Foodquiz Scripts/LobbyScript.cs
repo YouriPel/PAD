@@ -20,46 +20,36 @@ public class LobbyScript : MonoBehaviour
     public ScoreboardScript scoreboardScript;
 	private int playerCount;
 
-    void Awake()
-    {
+    void Awake() {
 		gameStateObj = GameObject.Find("GameManager");
 		gameManagerScript = gameStateObj.GetComponent<GameManagerScript> ();
 		gameStateScript = gameStateObj.GetComponent<GameStateScript> ();
     }
 
-	void Start()
-    {
+	void Start() {
 		ChangeSpelerText (1);
 	}
 
-	void ChangeSpelerText(int huidigeSpeler)
-    {
+	void ChangeSpelerText(int huidigeSpeler) {
 		int huidigeSpelerCount = playerCount + huidigeSpeler;
 		spelerText.text = "Speler " + huidigeSpelerCount;
 	}
 
-	public void InsertPlayerName(InputField playerInput)
-    {
-        if(playerCount < 4)
-        {
-            if(playerInput.text != "")
-            {
+	public void InsertPlayerName(InputField playerInput) {
+        if(playerCount < 4) {
+            if(playerInput.text != "") {
                 scoreboardScript.AddPlayer(playerInput.text);
             }
         }
 
-		if(playerCount == 4)
-        {
+		if(playerCount == 4) {
 			this.gameObject.SetActive (false);
 			gameStateScript.playButton ();
-		}
-        else
-        {
+		} else {
 			playerCount++;
 			ChangeSpelerText (1);
 
-            switch(playerCount)
-            {
+            switch(playerCount) {
                 case 1:
                     speler1Text.text = "Speler 1: " + playerInput.text;
                     break;

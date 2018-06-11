@@ -7,56 +7,70 @@ using UnityEngine.UI;
 
 public class ScoreboardScript : MonoBehaviour {
 
+    // Initialize script
     public Player playerScript;
+
+    // Initialize variables
     public Dictionary<string, int> playerScore = new Dictionary<string, int>();
     public List<Player> players = new List<Player>();
-    // public GameObject[] scoreText = new GameObject[4];
     public Text[] nameText = new Text[4];
     public Text[] scoreText = new Text[4];
     public int playerId = 0;
     public int counter = 0;
 
+    // Initialize readonly values
     private readonly int EQUALISE_VALUE = 1;
     private readonly int RESET_COUNTER = 0;
 
+    /// <summary>
+    /// Gets the scores by name and sorts them
+    /// </summary> 
     public void SetScoreboard() {
+        // Get the score of each player
         for (int i = 0; i < this.GetPlayerAmount(); i++) {
             playerScore[players[i].GetName()] = players[i].GetScore();
         }
+
+        // Sort the list based on scores
         List<KeyValuePair<string, int>> compareScoreList = playerScore.ToList();
         compareScoreList.Sort(delegate (KeyValuePair<string, int> pairOne, KeyValuePair<string, int> pairTwo) {
             return pairTwo.Value.CompareTo(pairOne.Value);
         });
 
+        // Set the Text objects with the names and scores
         foreach (KeyValuePair<string, int> player in compareScoreList) {
             nameText[counter].text = player.Key.ToString();
             scoreText[counter].text = player.Value.ToString();
             counter++;
         }
 
+        // Set the counter to 0
         counter = RESET_COUNTER;
-
-        /*foreach (KeyValuePair<string, int> player in playerScore) {
-            nameText[counter].text = player.Value.ToString();
-            scoreText[counter].text = player.Key.ToString();
-            counter++;
-        }
-
-        for (int i = 0; i < this.GetPlayerAmount(); i++) {
-            scoreText[i].GetComponentInChildren<Text>().text = compareScoreList[i].ToString();
-        }*/
     }
 
+    /// <summary>
+    /// Create a player and add it to List<Player> players
+    /// </summary>
+    /// <param name="name">
+    /// The name of the Player
+    /// </param>
     public void AddPlayer(string name) {
         playerId++;
         players.Add(playerScript.AddPlayer(name, playerId));
         playerScore.Add(name, playerScript.GetScore());
     }
 
+    /// <summary>
+    /// Get a player by it's player ID
+    /// </summary>
+    /// <param name="playerId">
+    /// The ID of the player
+    /// </param>
+    /// <returns>
+    /// A list of players
+    /// </returns>
     public Player GetPlayer(int playerId) {
         for (int i = 0; i < this.GetPlayerAmount() + EQUALISE_VALUE; i++) {
-            Debug.Log("Speler ID: " + players[i].GetPlayerId());
-            Debug.Log("Meegegeven ID: " + playerId);
             if (players[i].GetPlayerId() == playerId) {
                 return players[i];
             }
