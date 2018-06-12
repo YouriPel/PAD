@@ -21,6 +21,11 @@ public class LobbyScript : MonoBehaviour
     private TimerScript timerScript;
 	private int playerCount;
 
+
+	public Image errorBorder;
+	float opacity = 0, fadeSpeed = 0.01f;
+	bool isFading;
+
     void Awake() {
 		gameStateObj = GameObject.Find("GameManager");
 		gameManagerScript = gameStateObj.GetComponent<GameManagerScript> ();
@@ -29,6 +34,11 @@ public class LobbyScript : MonoBehaviour
 
 	void Start() {
 		ChangeSpelerText (1);
+		errorBorder.color = new Color (255, 0, 0, opacity);
+	}
+
+	void Update(){
+		if(isFading)ErrorBorderFade ();
 	}
 
 	void ChangeSpelerText(int huidigeSpeler) {
@@ -36,11 +46,30 @@ public class LobbyScript : MonoBehaviour
 		spelerText.text = "Speler " + huidigeSpelerCount;
 	}
 
+	void ErrorBorderFade(){
+		if(opacity > 0){
+			opacity -= fadeSpeed;
+			errorBorder.color = new Color (255, 0, 0, opacity);
+			print ("fading: " + opacity);
+		}
+		else{
+			isFading = false;
+			opacity = 0;
+			print ("fading: klaar");
+		}
+		
+	}
+
 	public void InsertPlayerName(InputField playerInput) {
         if(playerCount < 4) {
             if(playerInput.text != "") {
                 scoreboardScript.AddPlayer(playerInput.text);
             }
+			else{
+				opacity = 1;
+				isFading = true;
+				return;
+			}
         }
 
 		if(playerCount == 4) {
