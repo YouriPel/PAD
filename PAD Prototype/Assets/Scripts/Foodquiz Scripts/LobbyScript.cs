@@ -18,6 +18,7 @@ public class LobbyScript : MonoBehaviour
 	private GameStateScript gameStateScript;
     private Player playerScript;
     public ScoreboardScript scoreboardScript;
+    private TimerScript timerScript;
 	private int playerCount;
 
     void Awake() {
