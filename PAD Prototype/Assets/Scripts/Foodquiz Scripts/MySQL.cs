@@ -2,7 +2,9 @@
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 using System.IO;
-using System.Data;
+using System.Collections.Generic;
+
+
 
 namespace DatabaseCheck
 {
