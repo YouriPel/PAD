@@ -9,6 +9,7 @@ public class LobbyScript : MonoBehaviour
 	public InputField nameInput;
     public Text nameText;
 	public Text startButtonText;
+	public Button ResetButton;
     public Text spelerText;
     public Text speler1Text;
     public Text speler2Text;
@@ -21,6 +22,8 @@ public class LobbyScript : MonoBehaviour
     public ScoreboardScript scoreboardScript;
     private TimerScript timerScript;
 	private int playerCount;
+	private String[] playerName = new string[4];
+
 
 
 	public Image errorBorder;
@@ -62,12 +65,22 @@ public class LobbyScript : MonoBehaviour
 		
 	}
 
+	public void ResetPlayerButton(){
+		speler1Text.text = "Speler 1: ";
+		speler2Text.text = "Speler 2: ";
+		speler3Text.text = "Speler 3: ";
+		speler4Text.text = "Speler 4: ";
+		playerCount = 0;
+		nameInput.gameObject.SetActive(true);
+		nameText.gameObject.SetActive(true);
+		ChangeSpelerText (1);
+		startButtonText.text = "Volgende";
+	}
+
 	public void InsertPlayerName(InputField playerInput) {
         if(playerCount < 4) {
-            if(playerInput.text != "") {
-                scoreboardScript.AddPlayer(playerInput.text);
-            }
-			else{
+
+			if(playerInput.text == ""){
 				opacity = 1;
 				isFading = true;
 				return;
@@ -75,10 +88,14 @@ public class LobbyScript : MonoBehaviour
         }
 
 		if(playerCount == 4) {
+			for (int i = 0; i < playerName.Length; i++) {
+				scoreboardScript.AddPlayer(playerName[i]);
+			}
 			this.gameObject.SetActive (false);
 			gameStateScript.playButton ();
 
 		} else {
+			playerName[playerCount] = playerInput.text;
 			playerCount++;
 			ChangeSpelerText (1);
 
@@ -94,6 +111,7 @@ public class LobbyScript : MonoBehaviour
                     break;
                 case 4:
                     speler4Text.text = "Speler 4: " + playerInput.text;
+					
                     nameInput.gameObject.SetActive(false);
                     nameText.gameObject.SetActive(false);
                     spelerText.text = "Dit zijn de spelers.";
