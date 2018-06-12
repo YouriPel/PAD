@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
+using DatabaseCheck;
 
 public class GameScreenScript : MonoBehaviour {
 
@@ -20,12 +21,14 @@ public class GameScreenScript : MonoBehaviour {
 	private int currentPlayerId;
 	private int score = 1;
     private int currentScore;
-
+    MySQL mysql = new MySQL();
     private readonly int EQUALISE_VALUE = 1;
 
-    void Start (){
+   void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
+        mysql.ConnectToMySQL();
+        mysql.OpenConnection();
         //Gives player name to button
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
