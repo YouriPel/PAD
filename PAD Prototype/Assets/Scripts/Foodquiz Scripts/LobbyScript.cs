@@ -8,6 +8,7 @@ public class LobbyScript : MonoBehaviour
 {
 	public InputField nameInput;
     public Text nameText;
+	public Text startButtonText;
     public Text spelerText;
     public Text speler1Text;
     public Text speler2Text;
@@ -34,6 +35,7 @@ public class LobbyScript : MonoBehaviour
 
 	void Start() {
 		ChangeSpelerText (1);
+		startButtonText.text = "Volgende";
 		errorBorder.color = new Color (255, 0, 0, opacity);
 	}
 
@@ -75,6 +77,7 @@ public class LobbyScript : MonoBehaviour
 		if(playerCount == 4) {
 			this.gameObject.SetActive (false);
 			gameStateScript.playButton ();
+
 		} else {
 			playerCount++;
 			ChangeSpelerText (1);
@@ -94,6 +97,7 @@ public class LobbyScript : MonoBehaviour
                     nameInput.gameObject.SetActive(false);
                     nameText.gameObject.SetActive(false);
                     spelerText.text = "Dit zijn de spelers.";
+					startButtonText.text = "Start";
                     break;
                 default:
                     break;
