@@ -9,7 +9,6 @@ public class LobbyScript : MonoBehaviour
 	public InputField nameInput;
     public Text nameText;
 	public Text startButtonText;
-	public Button ResetButton;
     public Text spelerText;
     public Text speler1Text;
     public Text speler2Text;
