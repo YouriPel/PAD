@@ -15,7 +15,6 @@ public class LobbyScript : MonoBehaviour
     public Text speler3Text;
     public Text speler4Text;
     private GameObject gameStateObj;
-	private GameManagerScript gameManagerScript;
 	private GameStateScript gameStateScript;
     private Player playerScript;
     public ScoreboardScript scoreboardScript;
@@ -31,7 +30,6 @@ public class LobbyScript : MonoBehaviour
 
     void Awake() {
 		gameStateObj = GameObject.Find("GameManager");
-		gameManagerScript = gameStateObj.GetComponent<GameManagerScript> ();
 		gameStateScript = gameStateObj.GetComponent<GameStateScript> ();
     }
 

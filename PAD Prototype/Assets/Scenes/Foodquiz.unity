@@ -583,15 +583,15 @@ MonoBehaviour:
   playerScript: {fileID: 512047112}
   players: []
   nameText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 665991260}
+  - {fileID: 300060719}
+  - {fileID: 826149606}
+  - {fileID: 2056297204}
   scoreText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 965303955}
+  - {fileID: 1702803551}
+  - {fileID: 374097029}
+  - {fileID: 1113370921}
   playerId: 0
   counter: 0
 --- !u!1 &98524636
@@ -946,7 +946,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 333513917}
   m_OnClick:
     m_PersistentCalls:
@@ -5457,7 +5457,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
