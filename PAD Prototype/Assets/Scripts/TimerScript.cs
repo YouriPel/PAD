@@ -12,7 +12,7 @@ public class TimerScript : MonoBehaviour
     private Vector2 size;
 
     //Orginal Size of the timer
-    private Vector2 orgSize;
+    private Vector2 orgSize = new Vector2(1, 1);
 
     //Colors for the timer
     public Color colorGreen;
@@ -25,7 +25,7 @@ public class TimerScript : MonoBehaviour
 
     public void StartTimer()
     {
-        orgSize = transform.localScale;
+        print(orgSize);
         StartCoroutine("ChangeColor");
     }
 

@@ -51,9 +51,9 @@ public class NativeShareScript : MonoBehaviour {
 			yield return new WaitForSecondsRealtime(1);
 		}
 
-		yield return new WaitUntil(() => isFocus);
+		/*yield return new WaitUntil(() => isFocus);
 		CanvasShareObj.SetActive(false);
-		isProcessing = false;
+		isProcessing = false;*/
 	}
 
 	private void OnApplicationFocus(bool focus)
