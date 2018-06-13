@@ -9,7 +9,7 @@ using DatabaseCheck;
 public class GameScreenScript : MonoBehaviour {
 
 	public GameStateScript gameStateScript;
-	public GameObject spelerButtons, answerButtons, scoreboardScreen;
+	public GameObject spelerButtons, answerButtons, scoreboardScreen, nextButton;
 	public GameManagerScript gameManagerScript;
     public ScoreboardScript scoreboardScript;
     public TimerScript timerScript;
@@ -23,6 +23,8 @@ public class GameScreenScript : MonoBehaviour {
     private int currentScore;
     MySQL mysql = new MySQL();
     private readonly int EQUALISE_VALUE = 1;
+	public Text questionAmountText;
+	private int questionAmount = 1;
 
    void Start (){
 		spelerButtons.SetActive (true);
@@ -33,6 +35,7 @@ public class GameScreenScript : MonoBehaviour {
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
+		questionAmountText.text = questionAmount + " / 5";
 	}
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
@@ -76,10 +79,25 @@ public class GameScreenScript : MonoBehaviour {
             spelerButtonText[i].transform.parent.gameObject.SetActive(true);
         }
 
-        gameStateScript.ScoreScreen.SetActive(false);
-        gameStateScript.GameScreen.SetActive(true);
-        answerButtons.SetActive(false);
-        spelerButtons.SetActive(true);
+
+
+		if (questionAmount == 5) {
+			gameStateScript.EndScreen.SetActive (true);
+			gameStateScript.ScoreScreen.SetActive (true);
+			gameStateScript.GameScreen.SetActive (false);
+			nextButton.SetActive (false);
+			answerButtons.SetActive (false);
+			spelerButtons.SetActive (false);
+		} else {
+			questionAmount++;
+			//print ("Aantal vragen geweest: " + questionAmount);
+			questionAmountText.text = questionAmount + " / 5";
+			gameStateScript.ScoreScreen.SetActive(false);
+			gameStateScript.GameScreen.SetActive(true);
+			answerButtons.SetActive(false);
+			spelerButtons.SetActive(true);
+		}
+
     }
    	 
 }
