@@ -67,6 +67,7 @@ public class TimerScript : MonoBehaviour
         //If time is up, go to scoreboard
         else
         {
+            ResetTimer();
             gameScreen.gameObject.SetActive(false);///////////Hi Kevin, waarschijnlijk is dit het probleem
             gameStateScript.ScoreScreen.SetActive(true);
             scoreboardScript.SetScoreboard();
