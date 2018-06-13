@@ -26,7 +26,11 @@ public class GameScreenScript : MonoBehaviour {
 	public Text questionAmountText;
 	private int questionAmount = 1;
 
-   void Start (){
+    public AudioSource incorrectSound;
+    public AudioSource correctSound;
+    public AudioSource timeSound;
+
+    void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
         mysql.ConnectToMySQL();
@@ -46,6 +50,7 @@ public class GameScreenScript : MonoBehaviour {
 
         timer.SetActive(true);
         timerScript.StartTimer();
+        playSound("timer");
     }
 
 	public void SetAnswer(){
@@ -56,13 +61,16 @@ public class GameScreenScript : MonoBehaviour {
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
 		if (correctAnswer) { //if the answer is correct
+            playSound("correct");
             //Transision polising
             scoreboardScript.GetPlayer(playerid).UpdateScore();
 			//gameManagerScript.score [playerid] += score;
 			this.gameObject.SetActive (false);
 			gameStateScript.ScoreScreen.SetActive (true);
             scoreboardScript.SetScoreboard();
-		} else {//if the answer is not correct
+            timer.SetActive(false);
+        } else {//if the answer is not correct
+            playSound("incorrect");
             timerScript.ResetTimer();//////////////////////////////////////
             answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
@@ -71,7 +79,26 @@ public class GameScreenScript : MonoBehaviour {
 			currentPlayerId = -1;
 		}
 
-	}	
+	}
+
+    public void playSound(String path)
+    {
+        switch(path)
+        {
+            case "correct":
+                correctSound.Play();
+                timeSound.Stop();
+                break;
+            case "incorrect":
+                incorrectSound.Play();
+                break;
+            case "timer":
+                timeSound.Play();
+                break;
+            default:
+                break;
+        }
+    }
 
     public void EndScoreBoard() {
         for(int i=0; i<spelerButtonText.Length; i++)

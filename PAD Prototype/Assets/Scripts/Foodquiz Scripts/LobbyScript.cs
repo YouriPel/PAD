@@ -98,16 +98,16 @@ public class LobbyScript : MonoBehaviour
 
             switch(playerCount) {
                 case 1:
-                    speler1Text.text = "Speler 1: " + playerInput.text;
+                    speler1Text.text =  playerInput.text;
                     break;
                 case 2:
-                    speler2Text.text = "Speler 2: " + playerInput.text;
+                    speler2Text.text = playerInput.text;
                     break;
                 case 3:
-                    speler3Text.text = "Speler 3: " + playerInput.text;
+                    speler3Text.text = playerInput.text;
                     break;
                 case 4:
-                    speler4Text.text = "Speler 4: " + playerInput.text;
+                    speler4Text.text = playerInput.text;
 					
                     nameInput.gameObject.SetActive(false);
                     nameText.gameObject.SetActive(false);

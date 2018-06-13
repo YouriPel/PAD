@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour
 {
+    public GameStateScript gameStateScript;
+    public ScoreboardScript scoreboardScript;
+    public GameObject gameScreen;
+
     //Speed in seconds
     public float speed;
     //Size of the timer
@@ -31,12 +35,16 @@ public class TimerScript : MonoBehaviour
 
     IEnumerator ChangeColor()
     {
-        while(progress < 1)
+        
+        progress = 0;//Deze regel toegevoegd
+        while (progress < 1)
         {
             GetComponent<RawImage>().color = Color.Lerp(colorGreen, colorRed, progress);
             progress += (smoothness / (speed / 2)); //The amount of change to apply
             yield return new WaitForSeconds(smoothness);
+            
         }
+        
     }
 
 	void Update()
@@ -55,6 +63,13 @@ public class TimerScript : MonoBehaviour
         if (size.y > 0)
         {
             transform.localScale = size;
+        }
+        //If time is up, go to scoreboard
+        else if (size.y <= 0)
+        {
+            gameScreen.gameObject.SetActive(false);///////////Hi Kevin, waarschijnlijk is dit het probleem
+            gameStateScript.ScoreScreen.SetActive(true);
+            scoreboardScript.SetScoreboard();
         }
 
         #region Old code where the the color didn't change dynamicly
@@ -85,5 +100,6 @@ public class TimerScript : MonoBehaviour
         transform.localScale = orgSize;
         StopCoroutine("ChangeColor");
         GetComponent<RawImage>().color = colorGreen;
+        StartCoroutine("ChangeColor");
     }
 }
