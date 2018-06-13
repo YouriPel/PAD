@@ -1278,6 +1278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36a6fe3c45a8824da55dca98c5f1f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateScript: {fileID: 512047113}
+  scoreboardScript: {fileID: 67395813}
+  gameScreen: {fileID: 771330282}
   speed: 10
   colorGreen: {r: 0.54509807, g: 0.9882353, b: 0.10980392, a: 1}
   colorRed: {r: 0.9882353, g: 0.14509805, b: 0.10980392, a: 1}
