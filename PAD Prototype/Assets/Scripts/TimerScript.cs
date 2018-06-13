@@ -25,7 +25,8 @@ public class TimerScript : MonoBehaviour
     //Determines the smoothness of the lerp. Smaller values are smoother.
     float smoothness = 0.02f;
     //This float will serve as the 3rd parameter of the lerp function
-    public float progress = 0; 
+    public float progress = 0;
+    
 
     public void StartTimer()
     {

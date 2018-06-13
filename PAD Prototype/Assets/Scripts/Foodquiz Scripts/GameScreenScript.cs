@@ -37,6 +37,8 @@ public class GameScreenScript : MonoBehaviour {
     public AudioSource correctSound;
     public AudioSource timeSound;
 
+    private int[] disabledPlayersById = new int[4];
+
     void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
@@ -47,6 +49,8 @@ public class GameScreenScript : MonoBehaviour {
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
+
+
         SetAnswer();
         ShowQuestion();
     }
@@ -65,12 +69,39 @@ public class GameScreenScript : MonoBehaviour {
 
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
-		spelerButtons.SetActive (false);
-		answerButtons.SetActive (true);
 		currentPlayerId = playerId;
 		print("Speler  " + currentPlayerId);
-        //questionText.text = questions[count];
-        //count++;
+    }
+
+    public void ChosenButton(GameObject button)
+    {
+        for (int i = 0; i < spelerButtonText.Length; i++)
+        {
+            GameObject parent = spelerButtonText[i].transform.parent.gameObject;
+            Button chosenButton = parent.GetComponent<Button>();
+            if (parent != button)
+            {
+                chosenButton.interactable = false;
+            }
+        }
+        StartCoroutine("ChosenPlayerTimer");
+    }
+
+    void EnableInteractable()
+    {
+        for (int i = 0; i < spelerButtonText.Length; i++)
+        {
+            GameObject parent = spelerButtonText[i].transform.parent.gameObject;
+            Button chosenButton = parent.GetComponent<Button>();
+            chosenButton.interactable = true;
+        }
+    }
+
+    private IEnumerator ChosenPlayerTimer()
+    {
+        yield return new WaitForSeconds(2);
+        spelerButtons.SetActive(false);
+        answerButtons.SetActive(true);
         timer.SetActive(true);
         timerScript.StartTimer();
         playSound("timerPlay");
@@ -90,6 +121,7 @@ public class GameScreenScript : MonoBehaviour {
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
         timerScript.ResetTimer();
+        EnableInteractable();
         if (correctAnswer) { //if the answer is correct
             playSound("correct");
             scoreboardScript.GetPlayer(playerid).UpdateScore();
@@ -100,7 +132,8 @@ public class GameScreenScript : MonoBehaviour {
             playSound("incorrect");
             answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
-			spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
+            spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
+            disabledPlayersById[incorrectPlayers] = playerid - 1;
             incorrectPlayers++;
 
             //If all 4 players answered incorrectly. Go to scoreboard screen.
