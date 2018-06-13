@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 512047112}
+  questionScript: {fileID: 512047110}
   players: []
   nameText:
   - {fileID: 665991260}
@@ -597,6 +598,7 @@ MonoBehaviour:
   - {fileID: 1113370921}
   playerId: 0
   counter: 0
+  factText: {fileID: 1118955191}
 --- !u!1 &98524636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,9 +1434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36a6fe3c45a8824da55dca98c5f1f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStateScript: {fileID: 0}
-  scoreboardScript: {fileID: 0}
-  gameScreen: {fileID: 0}
+  gameStateScript: {fileID: 512047113}
+  scoreboardScript: {fileID: 67395813}
+  gameScreen: {fileID: 771330282}
   speed: 10
   colorGreen: {r: 0.54509807, g: 0.9882353, b: 0.10980392, a: 1}
   colorRed: {r: 0.9882353, g: 0.14509805, b: 0.10980392, a: 1}
@@ -2323,14 +2325,13 @@ MonoBehaviour:
   spelerButtons: {fileID: 644673191}
   answerButtons: {fileID: 1903879189}
   scoreboardScreen: {fileID: 67395808}
-  nextButton: {fileID: 0}
   timer: {fileID: 369148316}
-  questionScript: {fileID: 0}
+  questionScript: {fileID: 512047110}
   gameStateScript: {fileID: 512047113}
   scoreboardScript: {fileID: 67395813}
   timerScript: {fileID: 369148319}
   players: []
-  questionText: {fileID: 0}
+  questionText: {fileID: 2118943638}
   spelerButtonText:
   - {fileID: 1282599749}
   - {fileID: 1005428966}
@@ -2341,10 +2342,10 @@ MonoBehaviour:
   - {fileID: 258686500}
   - {fileID: 1477975491}
   - {fileID: 546138254}
-  questionAmountText: {fileID: 0}
-  incorrectSound: {fileID: 0}
-  correctSound: {fileID: 0}
-  timeSound: {fileID: 0}
+  questionAmountText: {fileID: 878394769}
+  incorrectSound: {fileID: 1421077173}
+  correctSound: {fileID: 2096294341}
+  timeSound: {fileID: 1253654184}
 --- !u!1 &779461258
 GameObject:
   m_ObjectHideFlags: 0

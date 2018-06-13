@@ -8,7 +8,7 @@ using DatabaseCheck;
 
 public class GameScreenScript : MonoBehaviour {
 
-	public GameObject spelerButtons, answerButtons, scoreboardScreen, nextButton;
+	public GameObject spelerButtons, answerButtons, scoreboardScreen;
     public GameObject timer;
 
     public QuestionScript questionScript;
@@ -47,7 +47,7 @@ public class GameScreenScript : MonoBehaviour {
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
-
+        SetAnswer();
         ShowQuestion();
     }
 
@@ -78,7 +78,7 @@ public class GameScreenScript : MonoBehaviour {
         int amountOfAnswers = 4; //Int to select the next 4 answers in the list.
         for(int i=0; i<answerButtonText.Length; i++)
         {
-            int whatAnswer = i + (amountOfAnswers * questionAmount);
+            int whatAnswer = i + (amountOfAnswers * count);
             answerButtonText[i].text = questionScript.answers[whatAnswer];
             //4de antwoord altijd goed
         }
@@ -91,7 +91,8 @@ public class GameScreenScript : MonoBehaviour {
         if (correctAnswer) { //if the answer is correct
             playSound("correct");
             scoreboardScript.GetPlayer(playerid).UpdateScore();
-
+            questionAmount++;
+            print("questionAmount: " + questionAmount);
             ShowScoreBoard();
         }
         else
@@ -144,28 +145,26 @@ public class GameScreenScript : MonoBehaviour {
         }
     }
 
-    public void EndScoreBoard() {
-        for(int i=0; i<spelerButtonText.Length; i++)
+    public void EndScoreBoard()
+    {
+        for (int i=0; i<spelerButtonText.Length; i++)
         {
             spelerButtonText[i].transform.parent.gameObject.SetActive(true);
         }
-
-
-
+        
 		if (questionAmount == 5) {
 			gameStateScript.EndScreen.SetActive (true);
 			gameStateScript.ScoreScreen.SetActive (true);
 			gameStateScript.GameScreen.SetActive (false);
-			nextButton.SetActive (false);
+			//nextButton.SetActive (false);
 			answerButtons.SetActive (false);
 			spelerButtons.SetActive (false);
 		} else {
-			questionAmount++;
             //print ("Aantal vragen geweest: " + questionAmount);
+            SetAnswer();
             ShowQuestion();
-
+            gameStateScript.GameScreen.SetActive(true);
             gameStateScript.ScoreScreen.SetActive(false);
-			gameStateScript.GameScreen.SetActive(true);
 			answerButtons.SetActive(false);
 			spelerButtons.SetActive(true);
 		}

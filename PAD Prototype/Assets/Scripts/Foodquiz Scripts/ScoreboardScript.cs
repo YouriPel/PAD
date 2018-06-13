@@ -9,6 +9,7 @@ public class ScoreboardScript : MonoBehaviour {
 
     // Initialize script
     public Player playerScript;
+    public QuestionScript questionScript;
 
     // Initialize variables
     public Dictionary<string, int> playerScore = new Dictionary<string, int>();
@@ -17,6 +18,8 @@ public class ScoreboardScript : MonoBehaviour {
     public Text[] scoreText = new Text[4];
     public int playerId = 0;
     public int counter = 0;
+    public Text factText;
+    private int factCounter;
 
     // Initialize readonly values
     private readonly int EQUALISE_VALUE = 1;
@@ -26,6 +29,11 @@ public class ScoreboardScript : MonoBehaviour {
     /// Gets the scores by name and sorts them
     /// </summary> 
     public void SetScoreboard() {
+
+        //set fact about the question
+        factText.text = questionScript.facts[factCounter];
+        factCounter++;
+
         // Get the score of each player
         for (int i = 0; i < this.GetPlayerAmount(); i++) {
             playerScore[players[i].GetName()] = players[i].GetScore();

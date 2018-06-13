@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
     /// </param>
     public Player(string name, int playerId) {
         this.playerId = playerId;
-        Debug.Log(playerId);
+        //Debug.Log(playerId);
         this.name = name;
         this.score = DEFAULT_SCORE;
     }
