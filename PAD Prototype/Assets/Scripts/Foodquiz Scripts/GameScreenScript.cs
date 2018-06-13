@@ -25,6 +25,10 @@ public class GameScreenScript : MonoBehaviour {
     private readonly int EQUALISE_VALUE = 1;
 	public Text questionAmountText;
 	private int questionAmount = 1;
+    public List<String> questions = new List<String>();
+    public List<String> answers = new List<String>();
+    public List<String> facts = new List<String>();
+    public int count = 0;
 
     public AudioSource incorrectSound;
     public AudioSource correctSound;
@@ -40,14 +44,21 @@ public class GameScreenScript : MonoBehaviour {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
 		questionAmountText.text = questionAmount + " / 5";
-	}
+        questions.Add(spelerButtonText[1]+"heeft zonneallergie, welke vitamine krijgt ze nu niet binnen ?");
+        questions.Add(spelerButtonText[0]+"is gecrashed met het vliegtuig en is de enige overlevende Hoeveel dagen kan een mens zonder eten ?");
+        questions.Add(spelerButtonText[2]+"drinkt een halve liter bier in de nachtclub. Hoeveel kJ energie krijgt hij hiervan?");
+        questions.Add(spelerButtonText[0]+"krijgt 293 kcal binnen na het eten van een product. Welk product kan dit zijn");
+        questions.Add(spelerButtonText[3]+"heeft gisteren een Big Mac gegeten (503 kcal). Hoeveel minuten moet hij/zij hardlopen (12 km/h) om deze weer te verbranden");
+    }
+    
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
 		spelerButtons.SetActive (false);
 		answerButtons.SetActive (true);
 		currentPlayerId = playerId;
 		print("Speler  " + currentPlayerId);
-
+        questionText.text = questions[count];
+        count++;
         timer.SetActive(true);
         timerScript.StartTimer();
         playSound("timer");
