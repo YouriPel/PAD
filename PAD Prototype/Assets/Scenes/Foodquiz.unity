@@ -488,7 +488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &67395809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -599,6 +599,7 @@ MonoBehaviour:
   playerId: 0
   counter: 0
   factText: {fileID: 1118955191}
+  shareButton: {fileID: 333513914}
 --- !u!1 &98524636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,7 +2496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &771330283
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3850,7 +3851,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 2
+    m_MinSize: 4
     m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3858,7 +3859,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetje
+  m_Text: -hier komen de weetjes-
 --- !u!222 &1118955192
 CanvasRenderer:
   m_ObjectHideFlags: 0

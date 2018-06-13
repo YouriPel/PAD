@@ -20,10 +20,17 @@ public class ScoreboardScript : MonoBehaviour {
     public int counter = 0;
     public Text factText;
     private int factCounter;
+    public GameObject shareButton;
 
     // Initialize readonly values
     private readonly int EQUALISE_VALUE = 1;
     private readonly int RESET_COUNTER = 0;
+
+
+    void Start()
+    {
+        shareButton.SetActive(false);
+    }
 
     /// <summary>
     /// Gets the scores by name and sorts them
@@ -33,6 +40,11 @@ public class ScoreboardScript : MonoBehaviour {
         //set fact about the question
         factText.text = questionScript.facts[factCounter];
         factCounter++;
+
+        if(factCounter == 5)
+        {
+            shareButton.SetActive(true);
+        }
 
         // Get the score of each player
         for (int i = 0; i < this.GetPlayerAmount(); i++) {

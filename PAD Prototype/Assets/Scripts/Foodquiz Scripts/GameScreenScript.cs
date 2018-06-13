@@ -183,11 +183,9 @@ public class GameScreenScript : MonoBehaviour {
             spelerButtonText[i].transform.parent.gameObject.SetActive(true);
         }
         
-        //hardcode fix
 		if (questionAmount == 5) {
 			gameStateScript.EndScreen.SetActive (true);
             gameStateScript.ScoreScreen.SetActive(false);
-            print("het is zes");
 
 		} else {
             SetAnswer();
