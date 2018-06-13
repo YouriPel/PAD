@@ -26,7 +26,6 @@ public class MoveImage : MonoBehaviour
     {
         if (coll.gameObject.name == "bottomCollider")
         {
-            print("hit");
             rt.anchoredPosition = startPos;
         }
     }

@@ -40,9 +40,9 @@ public class GameStateScript : MonoBehaviour {
         GameScreen.SetActive(true);
     }
 
-	/*
-	//Method for the back to main menu button
+	
+	//exit game
 	public void ClickEndGameButton() {
 		Application.Quit ();
-	}*/
+	}
 }
