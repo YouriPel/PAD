@@ -19,7 +19,7 @@ public class GameScreenScript : MonoBehaviour {
 	public Text[] spelerButtonText = new Text[4];
 	public Text[] answerButtonText = new Text[4];
 	private int currentPlayerId;
-	private int score = 1;
+    private int incorrectPlayers;
     private int currentScore;
     MySQL mysql = new MySQL();
     private readonly int EQUALISE_VALUE = 1;
@@ -35,12 +35,14 @@ public class GameScreenScript : MonoBehaviour {
 		answerButtons.SetActive (false);
         mysql.ConnectToMySQL();
         mysql.OpenConnection();
+
         //Gives player name to button
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
 		questionAmountText.text = questionAmount + " / 5";
 	}
+
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
 		spelerButtons.SetActive (false);
@@ -50,7 +52,7 @@ public class GameScreenScript : MonoBehaviour {
 
         timer.SetActive(true);
         timerScript.StartTimer();
-        playSound("timer");
+        playSound("timerPlay");
     }
 
 	public void SetAnswer(){
@@ -63,21 +65,36 @@ public class GameScreenScript : MonoBehaviour {
         timerScript.ResetTimer();
         if (correctAnswer) { //if the answer is correct
             playSound("correct");
-            //Transision polising
             scoreboardScript.GetPlayer(playerid).UpdateScore();
-			//gameManagerScript.score [playerid] += score;
-			this.gameObject.SetActive (false);
-			gameStateScript.ScoreScreen.SetActive (true);
-            scoreboardScript.SetScoreboard();
-            timer.SetActive(false);
-        } else {//if the answer is not correct
+
+            ShowScoreBoard();
+        }
+        else
+        {//if the answer is not correct
             playSound("incorrect");
             answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
 			spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
-			print ("currentPlayerId: "+playerid);
+            incorrectPlayers++;
+
+            //If all 4 players answered incorrectly. Go to scoreboard screen.
+            if (incorrectPlayers == 4)
+            {
+                ShowScoreBoard();
+                playSound("timerStop");
+            }
+
+            print ("currentPlayerId: "+playerid);
 			currentPlayerId = -1;
         }
+    }
+
+    void ShowScoreBoard()
+    {
+        this.gameObject.SetActive(false);
+        gameStateScript.ScoreScreen.SetActive(true);
+        scoreboardScript.SetScoreboard();
+        timer.SetActive(false);
     }
 
     public void playSound(String path)
@@ -91,8 +108,11 @@ public class GameScreenScript : MonoBehaviour {
             case "incorrect":
                 incorrectSound.Play();
                 break;
-            case "timer":
+            case "timerPlay":
                 timeSound.Play();
+                break;
+            case "timerStop":
+                timeSound.Stop();
                 break;
             default:
                 break;

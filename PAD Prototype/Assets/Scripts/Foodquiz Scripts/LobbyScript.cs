@@ -41,7 +41,11 @@ public class LobbyScript : MonoBehaviour
 
 	void Update(){
 		if(isFading)ErrorBorderFade ();
-	}
+
+        //ADDED ENTER BUTTON FOR EASY NAME INPUT ON PC.
+        if (Input.GetKeyDown(KeyCode.Return)) InsertPlayerName(nameInput);
+
+    }
 
 	void ChangeSpelerText(int huidigeSpeler) {
 		int huidigeSpelerCount = playerCount + huidigeSpeler;
