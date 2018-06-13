@@ -14,6 +14,7 @@ public class LobbyScript : MonoBehaviour
     public Text speler2Text;
     public Text speler3Text;
     public Text speler4Text;
+    public MySQL mysql;
     private GameObject gameStateObj;
 	private GameStateScript gameStateScript;
     private Player playerScript;
@@ -28,16 +29,20 @@ public class LobbyScript : MonoBehaviour
 	float opacity = 0, fadeSpeed = 0.01f;
 	bool isFading;
 
+
     void Awake() {
 		gameStateObj = GameObject.Find("GameManager");
 		gameStateScript = gameStateObj.GetComponent<GameStateScript> ();
+        mysql.Initialize();
+        mysql.OpenConnection();
     }
 
 	void Start() {
 		ChangeSpelerText (1);
 		startButtonText.text = "Volgende";
 		errorBorder.color = new Color (255, 0, 0, opacity);
-	}
+
+    }
 
 	void Update(){
 		if(isFading)ErrorBorderFade ();
@@ -52,7 +57,7 @@ public class LobbyScript : MonoBehaviour
 		if(opacity > 0){
 			opacity -= fadeSpeed;
 			errorBorder.color = new Color (255, 0, 0, opacity);
-			print ("fading: " + opacity);
+			//print ("fading: " + opacity);
 		}
 		else{
 			isFading = false;
