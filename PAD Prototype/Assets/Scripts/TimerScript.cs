@@ -65,7 +65,7 @@ public class TimerScript : MonoBehaviour
             transform.localScale = size;
         }
         //If time is up, go to scoreboard
-        else if (size.y <= 0)
+        else
         {
             gameScreen.gameObject.SetActive(false);///////////Hi Kevin, waarschijnlijk is dit het probleem
             gameStateScript.ScoreScreen.SetActive(true);

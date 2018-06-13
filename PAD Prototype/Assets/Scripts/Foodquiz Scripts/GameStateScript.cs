@@ -3,27 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStateScript : MonoBehaviour {
-    
-	[Header("Gamestates")]
-	public GameObject Lobby;
+
+    [Header("Gamestates")]
+    public GameObject menuScreen;
+	public GameObject LobbyScreen;
 	public GameObject GameScreen;
 	public GameObject EndScreen;
     public GameObject ScoreScreen;
 
-	void Start () {
-		Lobby.SetActive(true);
+	void Start ()
+    {
+        menuScreen.SetActive(true);
+        LobbyScreen.SetActive(false);
 		GameScreen.SetActive (false);
 		EndScreen.SetActive (false);
         ScoreScreen.SetActive(false);
     }
 
 	public void WaitForPlayersScreen(){
-		Lobby.SetActive(false);
+        LobbyScreen.SetActive(false);
 	}
+
+    public void MenuToLobbyButton()
+    {
+        menuScreen.SetActive(false);
+        LobbyScreen.SetActive(true);
+    }
 
     public void BackButton()
     {
-        Lobby.SetActive(true);
+        LobbyScreen.SetActive(true);
     }
 
     public void playButton()

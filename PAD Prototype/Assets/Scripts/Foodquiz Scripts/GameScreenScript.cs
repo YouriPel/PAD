@@ -60,7 +60,8 @@ public class GameScreenScript : MonoBehaviour {
 	public void ClickAnswerButton (bool correctAnswer){
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
-		if (correctAnswer) { //if the answer is correct
+        timerScript.ResetTimer();
+        if (correctAnswer) { //if the answer is correct
             playSound("correct");
             //Transision polising
             scoreboardScript.GetPlayer(playerid).UpdateScore();
@@ -71,15 +72,13 @@ public class GameScreenScript : MonoBehaviour {
             timer.SetActive(false);
         } else {//if the answer is not correct
             playSound("incorrect");
-            timerScript.ResetTimer();//////////////////////////////////////
             answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
 			spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
 			print ("currentPlayerId: "+playerid);
 			currentPlayerId = -1;
-		}
-
-	}
+        }
+    }
 
     public void playSound(String path)
     {
