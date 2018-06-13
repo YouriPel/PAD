@@ -28,12 +28,36 @@ public class QuestionScript : MonoBehaviour {
     //Add the answers in the answers list
     void AddAnswers()
     {
-
+        answers.Add("Vitamine D"); 
+        answers.Add("35 dagen");
+        answers.Add("875 KJ");
+        answers.Add("Een knakworst");
+        answers.Add("12 minuten");
+        answers.Add("Vitamine A");
+        answers.Add("Vitamine C");
+        answers.Add("Vitamine B");
+        answers.Add("14 dagen");
+        answers.Add("6 dagen");
+        answers.Add("28 dagen");
+        answers.Add("625 KJ");
+        answers.Add("515 KJ");
+        answers.Add("400 KJ");
+        answers.Add("Een Avocado");
+        answers.Add("Een Ananas");
+        answers.Add("Een Appel");
+        answers.Add("27 minuten");
+        answers.Add("13 minuten");
+        answers.Add("36 minuten");
     }
 
     //Add the facts in the facts list
     void AddFacts()
     {
+        facts.Add("Als je schaduw langer is dan jezelf, kun je wel naar buiten gaan, maar je huid zal geen vitamine D maken, hoe zonnig het ook is.");
+        facts.Add("Van je zintuigen is je zicht het eerste wat je verliest als je sterft, Je gehoor staat op de laatste plek.");
+        facts.Add("Het proosten van een glas bier of wijn stamt uit het tijdperk van de Romeinen. Maar waar is deze gewoonte eigenlijk door ontstaan? Blijkbaar wantrouwde men elkaar, doordat veel Romeinen elkaar vergiftigden. Door ruw te proosten werd er een hoop drank uitgewisseld tussen de glazen. Hierdoor was de kans op vergiftiging een stuk kleiner.");
+        facts.Add("Wist je dat het record voor de meeste broodjes worst eten in 10 minuten 68 broodjes is.");
+        facts.Add("Wist je dat Goed getrainde hardlopers betere prestaties in bed leveren.");
 
     }
 }
