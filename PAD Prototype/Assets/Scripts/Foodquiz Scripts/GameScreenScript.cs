@@ -29,12 +29,15 @@ public class GameScreenScript : MonoBehaviour {
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
        mysql.Initialize();
-       mysql.OpenConnection();
         //Gives player name to button
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
-		}
-	}
+        }
+        GetComponent<GameScreenScript>();
+        GameObject.Find("connectionstring");
+        mysql.OpenConnection();
+
+    }
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
 		spelerButtons.SetActive (false);
