@@ -48,6 +48,7 @@ public class GameScreenScript : MonoBehaviour {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
 
+        SetAnswer();
         ShowQuestion();
     }
 
@@ -78,7 +79,7 @@ public class GameScreenScript : MonoBehaviour {
         int amountOfAnswers = 4; //Int to select the next 4 answers in the list.
         for(int i=0; i<answerButtonText.Length; i++)
         {
-            int whatAnswer = i + (amountOfAnswers * questionAmount);
+            int whatAnswer = i + (amountOfAnswers * count);
             answerButtonText[i].text = questionScript.answers[whatAnswer];
             //4de antwoord altijd goed
         }
@@ -163,7 +164,7 @@ public class GameScreenScript : MonoBehaviour {
 			questionAmount++;
             //print ("Aantal vragen geweest: " + questionAmount);
             ShowQuestion();
-
+            SetAnswer();
             gameStateScript.ScoreScreen.SetActive(false);
 			gameStateScript.GameScreen.SetActive(true);
 			answerButtons.SetActive(false);
