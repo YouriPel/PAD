@@ -2325,12 +2325,12 @@ MonoBehaviour:
   scoreboardScreen: {fileID: 67395808}
   nextButton: {fileID: 354103997}
   timer: {fileID: 369148316}
-  questionScript: {fileID: 0}
+  questionScript: {fileID: 512047110}
   gameStateScript: {fileID: 512047113}
   scoreboardScript: {fileID: 67395813}
   timerScript: {fileID: 369148319}
   players: []
-  questionText: {fileID: 0}
+  questionText: {fileID: 2118943638}
   spelerButtonText:
   - {fileID: 1282599749}
   - {fileID: 1005428966}
