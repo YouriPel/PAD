@@ -15,8 +15,6 @@ public class ScoreboardScript : MonoBehaviour {
     public List<Player> players = new List<Player>();
     public Text[] nameText = new Text[4];
     public Text[] scoreText = new Text[4];
-    public Text factsText;
-    private int factCounter = 0;
     public int playerId = 0;
     public int counter = 0;
 
@@ -24,17 +22,10 @@ public class ScoreboardScript : MonoBehaviour {
     private readonly int EQUALISE_VALUE = 1;
     private readonly int RESET_COUNTER = 0;
 
-    //Initialize questionScript
-    public QuestionScript questionScript;
-    
     /// <summary>
     /// Gets the scores by name and sorts them
     /// </summary> 
     public void SetScoreboard() {
-        //Set fact related to current question
-        factsText.text = questionScript.facts[factCounter];
-        factCounter++;
-
         // Get the score of each player
         for (int i = 0; i < this.GetPlayerAmount(); i++) {
             playerScore[players[i].GetName()] = players[i].GetScore();

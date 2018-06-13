@@ -426,8 +426,8 @@ RectTransform:
   - {fileID: 1301204123}
   - {fileID: 522787585}
   - {fileID: 771330283}
-  - {fileID: 67395809}
   - {fileID: 1400002184}
+  - {fileID: 67395809}
   - {fileID: 825595800}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -488,7 +488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &67395809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -508,7 +508,7 @@ RectTransform:
   - {fileID: 1510874022}
   - {fileID: 333513915}
   m_Father: {fileID: 66202705}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -595,10 +595,8 @@ MonoBehaviour:
   - {fileID: 1702803551}
   - {fileID: 374097029}
   - {fileID: 1113370921}
-  factsText: {fileID: 1118955191}
   playerId: 0
   counter: 0
-  questionScript: {fileID: 512047110}
 --- !u!1 &98524636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &522787585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3642,7 +3640,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 534206545e241244ba1c701a8e7a36b2, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 60
     m_Alignment: 4
@@ -3651,7 +3649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '- hier komt weetje-'
+  m_Text: WeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetjeWeetje
 --- !u!222 &1118955192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4416,7 +4414,7 @@ RectTransform:
   m_Children:
   - {fileID: 1419245866}
   m_Father: {fileID: 66202705}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5770,7 +5768,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1886907419}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!124 &1886907421
 Behaviour:
   m_ObjectHideFlags: 0
