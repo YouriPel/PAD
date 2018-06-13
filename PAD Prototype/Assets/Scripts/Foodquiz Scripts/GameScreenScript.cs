@@ -28,7 +28,7 @@ public class GameScreenScript : MonoBehaviour {
    void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
-        mysql.Initialize();
+       mysql.Initialize();
        mysql.OpenConnection();
         //Gives player name to button
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {

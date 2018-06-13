@@ -45,7 +45,7 @@ public class MySQL : MonoBehaviour
         try
         {
             connection.Open();
-            print("connection works");
+            
             return true;
         }
         catch (MySqlException ex)
