@@ -8,27 +8,30 @@ using DatabaseCheck;
 
 public class GameScreenScript : MonoBehaviour {
 
-	public GameStateScript gameStateScript;
 	public GameObject spelerButtons, answerButtons, scoreboardScreen, nextButton;
-	public GameManagerScript gameManagerScript;
+    public GameObject timer;
+
+    public QuestionScript questionScript;
+    public GameStateScript gameStateScript;
     public ScoreboardScript scoreboardScript;
     public TimerScript timerScript;
-    public GameObject timer;
+
     public List<Player> players = new List<Player>();
-    private Text questionText;
+
+    public Text questionText;
 	public Text[] spelerButtonText = new Text[4];
 	public Text[] answerButtonText = new Text[4];
-	private int currentPlayerId;
+    public Text questionAmountText;
+
+    private int currentPlayerId;
     private int incorrectPlayers;
     private int currentScore;
-    MySQL mysql = new MySQL();
+    private int questionAmount = 1;
+    private int count = 0;
+
     private readonly int EQUALISE_VALUE = 1;
-	public Text questionAmountText;
-	private int questionAmount = 1;
-    public List<String> questions = new List<String>();
-    public List<String> answers = new List<String>();
-    public List<String> facts = new List<String>();
-    public int count = 0;
+
+    MySQL mysql = new MySQL();
 
     public AudioSource incorrectSound;
     public AudioSource correctSound;
@@ -44,18 +47,19 @@ public class GameScreenScript : MonoBehaviour {
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
-		questionAmountText.text = questionAmount + " / 5";
 
-        questions.Add(spelerButtonText[1]+"heeft zonneallergie, welke vitamine krijgt ze nu niet binnen ?");
-        questions.Add(spelerButtonText[0]+"is gecrashed met het vliegtuig en is de enige overlevende Hoeveel dagen kan een mens zonder eten ?");
-        questions.Add(spelerButtonText[2]+"drinkt een halve liter bier in de nachtclub. Hoeveel kJ energie krijgt hij hiervan?");
-        questions.Add(spelerButtonText[0]+"krijgt 293 kcal binnen na het eten van een product. Welk product kan dit zijn");
-        questions.Add(spelerButtonText[3]+"heeft gisteren een Big Mac gegeten (503 kcal). Hoeveel minuten moet hij/zij hardlopen (12 km/h) om deze weer te verbranden");
+        ShowQuestion();
     }
-    
 
-	
+    void ShowQuestion()
+    {
+        questionAmountText.text = questionAmount + " / 5";
 
+        int rndPlayer = (int)UnityEngine.Random.Range(0, spelerButtonText.Length);
+
+        questionText.text = spelerButtonText[rndPlayer].text + questionScript.questions[count];
+        count++;
+    }
 
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
@@ -63,15 +67,21 @@ public class GameScreenScript : MonoBehaviour {
 		answerButtons.SetActive (true);
 		currentPlayerId = playerId;
 		print("Speler  " + currentPlayerId);
-        questionText.text = questions[count];
-        count++;
+        //questionText.text = questions[count];
+        //count++;
         timer.SetActive(true);
         timerScript.StartTimer();
         playSound("timerPlay");
     }
 
 	public void SetAnswer(){
-	//Set andwoorden uit database in de button
+        int amountOfAnswers = 4; //Int to select the next 4 answers in the list.
+        for(int i=0; i<answerButtonText.Length; i++)
+        {
+            int whatAnswer = i + (amountOfAnswers * questionAmount);
+            answerButtonText[i].text = questionScript.answers[whatAnswer];
+            //4de antwoord altijd goed
+        }
 	}
 
 	public void ClickAnswerButton (bool correctAnswer){
@@ -151,9 +161,10 @@ public class GameScreenScript : MonoBehaviour {
 			spelerButtons.SetActive (false);
 		} else {
 			questionAmount++;
-			//print ("Aantal vragen geweest: " + questionAmount);
-			questionAmountText.text = questionAmount + " / 5";
-			gameStateScript.ScoreScreen.SetActive(false);
+            //print ("Aantal vragen geweest: " + questionAmount);
+            ShowQuestion();
+
+            gameStateScript.ScoreScreen.SetActive(false);
 			gameStateScript.GameScreen.SetActive(true);
 			answerButtons.SetActive(false);
 			spelerButtons.SetActive(true);
