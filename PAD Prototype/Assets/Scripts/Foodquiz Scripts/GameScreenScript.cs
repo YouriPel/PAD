@@ -109,8 +109,6 @@ public class GameScreenScript : MonoBehaviour {
                 ShowScoreBoard();
                 playSound("timerStop");
             }
-
-            print ("currentPlayerId: "+playerid);
 			currentPlayerId = -1;
         }
     }
@@ -154,15 +152,8 @@ public class GameScreenScript : MonoBehaviour {
         
 		if (questionAmount == 5) {
 			gameStateScript.EndScreen.SetActive (true);
-			//gameStateScript.ScoreScreen.SetActive (true);
-			//gameStateScript.GameScreen.SetActive (false);
             gameStateScript.ScoreScreen.SetActive(false);
-			//nextButton.SetActive (false);
-			//answerButtons.SetActive (false);
-			//spelerButtons.SetActive (false);
-            print("question amount is 5");
 		} else {
-            print ("Aantal vragen geweest: " + questionAmount);
             SetAnswer();
             ShowQuestion();
             gameStateScript.GameScreen.SetActive(true);
