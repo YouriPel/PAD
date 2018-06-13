@@ -26,7 +26,7 @@ public class GameScreenScript : MonoBehaviour {
     private int currentPlayerId;
     private int incorrectPlayers;
     private int currentScore;
-    private int questionAmount = 1;
+    private int questionAmount = 0;
     private int count = 0;
 
     private readonly int EQUALISE_VALUE = 1;
@@ -53,6 +53,8 @@ public class GameScreenScript : MonoBehaviour {
 
     void ShowQuestion()
     {
+        questionAmount++;
+        print("questionAmount: " + questionAmount);
         questionAmountText.text = questionAmount + " / 5";
 
         int rndPlayer = (int)UnityEngine.Random.Range(0, spelerButtonText.Length);
@@ -91,8 +93,6 @@ public class GameScreenScript : MonoBehaviour {
         if (correctAnswer) { //if the answer is correct
             playSound("correct");
             scoreboardScript.GetPlayer(playerid).UpdateScore();
-            questionAmount++;
-            print("questionAmount: " + questionAmount);
             ShowScoreBoard();
         }
         else
@@ -150,9 +150,12 @@ public class GameScreenScript : MonoBehaviour {
             spelerButtonText[i].transform.parent.gameObject.SetActive(true);
         }
         
+        //hardcode fix
 		if (questionAmount == 5) {
 			gameStateScript.EndScreen.SetActive (true);
             gameStateScript.ScoreScreen.SetActive(false);
+            print("het is zes");
+
 		} else {
             SetAnswer();
             ShowQuestion();
@@ -160,7 +163,7 @@ public class GameScreenScript : MonoBehaviour {
             gameStateScript.ScoreScreen.SetActive(false);
 			answerButtons.SetActive(false);
 			spelerButtons.SetActive(true);
-		}
+        }
 
     }
    	 
