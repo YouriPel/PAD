@@ -33,8 +33,6 @@ public class LobbyScript : MonoBehaviour
     void Awake() {
 		gameStateObj = GameObject.Find("GameManager");
 		gameStateScript = gameStateObj.GetComponent<GameStateScript> ();
-        mysql.Initialize();
-        mysql.OpenConnection();
     }
 
 	void Start() {

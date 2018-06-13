@@ -15,6 +15,7 @@ public class MySQL : MonoBehaviour
     private string database;
     private string uid;
     private string password;
+    private string sslmode;
 
     // Create connect method
     public void ConnectToMySQL()
@@ -27,11 +28,13 @@ public class MySQL : MonoBehaviour
     {
         server = "localhost";
         database = "zsinayn";
-        uid = "sinayn";
-        password = "Waag003";
+        uid = "root";
+        password = "1234";
+        sslmode = "none";
         string connectionString;
         connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-        database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+        database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";"
+        + "SSLMODE=" + sslmode + ";";
         //MySqlConnection connection = new MySqlConnection(@"data source=C:\users\nsina\zsinayn.db;");
         connection = new MySqlConnection(connectionString);
     }
