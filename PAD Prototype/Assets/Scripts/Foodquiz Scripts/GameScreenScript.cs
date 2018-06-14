@@ -144,6 +144,9 @@ public class GameScreenScript : MonoBehaviour {
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
         timerScript.ResetTimer();
+		timer.SetActive(false);
+		playSound("timerStop");
+
         EnableInteractable();
         if (correctAnswer) { //if the answer is correct
             playSound("correct");
