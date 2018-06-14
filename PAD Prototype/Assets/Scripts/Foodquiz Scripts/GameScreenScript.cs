@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
-using DatabaseCheck;
 
 public class GameScreenScript : MonoBehaviour {
 
@@ -31,8 +30,6 @@ public class GameScreenScript : MonoBehaviour {
 
     private readonly int EQUALISE_VALUE = 1;
 
-    MySQL mysql = new MySQL();
-
     public AudioSource incorrectSound;
     public AudioSource correctSound;
     public AudioSource timeSound;
@@ -45,8 +42,6 @@ public class GameScreenScript : MonoBehaviour {
     void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
-        mysql.ConnectToMySQL();
-        mysql.OpenConnection();
 
         //Gives player name to button
         for (int i = EQUALISE_VALUE; i < scoreboardScript.GetPlayerAmount() + EQUALISE_VALUE; i++) {
