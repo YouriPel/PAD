@@ -56,7 +56,7 @@ public class LobbyScript : MonoBehaviour
 		if(opacity > 0){
 			opacity -= fadeSpeed;
 			errorBorder.color = new Color (255, 0, 0, opacity);
-			print ("fading: " + opacity);
+			//print ("fading: " + opacity);
 		}
 		else{
 			isFading = false;

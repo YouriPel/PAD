@@ -37,7 +37,7 @@ public class GameScreenScript : MonoBehaviour {
     public AudioSource correctSound;
     public AudioSource timeSound;
 
-    private int[] disabledPlayersById = new int[4];
+    public int[] disabledPlayersById = new int[4];
 
     private Vector2[] answerButtonStartPos = new Vector2[4];
     public List<Vector2> DiffPos = new List<Vector2>();
@@ -88,7 +88,7 @@ public class GameScreenScript : MonoBehaviour {
 	//See which player clicks the button
 	public void ClickPlayerButton (int playerId){
 		currentPlayerId = playerId;
-		print("Speler  " + currentPlayerId);
+		//print("Speler  " + currentPlayerId);
     }
 
     public void ChosenButton(GameObject button)
@@ -117,7 +117,7 @@ public class GameScreenScript : MonoBehaviour {
 
     private IEnumerator ChosenPlayerTimer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         spelerButtons.SetActive(false);
         answerButtons.SetActive(true);
         timer.SetActive(true);
@@ -134,7 +134,7 @@ public class GameScreenScript : MonoBehaviour {
             RectTransform parentPos = answerButtonText[i].transform.parent.gameObject.GetComponent<RectTransform>();
 
             int rndPos = (int)UnityEngine.Random.Range(0, DiffPos.Count);
-            print("object "+i+" heeft "+ DiffPos[rndPos]);
+            //print("object "+i+" heeft "+ DiffPos[rndPos]);
             parentPos.anchoredPosition = DiffPos[rndPos];
             DiffPos.RemoveAt(rndPos);
         }
@@ -144,6 +144,9 @@ public class GameScreenScript : MonoBehaviour {
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
         timerScript.ResetTimer();
+		timer.SetActive(false);
+		playSound("timerStop");
+
         EnableInteractable();
         if (correctAnswer) { //if the answer is correct
             playSound("correct");
@@ -153,11 +156,15 @@ public class GameScreenScript : MonoBehaviour {
         else
         {//if the answer is not correct
             playSound("incorrect");
+			//print ("incorrect antwoord");
             answerButtons.SetActive (false);
 			spelerButtons.SetActive (true);
             spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
-            disabledPlayersById[incorrectPlayers] = playerid - 1;
-            incorrectPlayers++;
+            //disabledPlayersById[incorrectPlayers] = playerid - 1;
+
+			playSound("incorrect");
+			incorrectPlayers++;
+			print("incorrectPlayers: "+incorrectPlayers);
 
             //If all 4 players answered incorrectly. Go to scoreboard screen.
             if (incorrectPlayers == 4)
@@ -209,10 +216,10 @@ public class GameScreenScript : MonoBehaviour {
 		if (questionAmount == 5) {
 			gameStateScript.EndScreen.SetActive (true);
             gameStateScript.ScoreScreen.SetActive(false);
-
 		}
         else
-        {
+		{
+			incorrectPlayers = 0;
             InitDiffPos();
             SetAnswer();
             ShowQuestion();

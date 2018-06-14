@@ -27,10 +27,12 @@ public class TimerScript : MonoBehaviour
     //This float will serve as the 3rd parameter of the lerp function
     public float progress = 0;
     
+	private bool hasStarted;
 
     public void StartTimer()
     {
-        print(orgSize);
+        //print(orgSize);
+		hasStarted = true;
         StartCoroutine("ChangeColor");
     }
 
@@ -50,7 +52,7 @@ public class TimerScript : MonoBehaviour
 
 	void Update()
     {
-        ChangeSize();
+		if(hasStarted)ChangeSize();
     }
 
     void ChangeSize()
@@ -99,9 +101,10 @@ public class TimerScript : MonoBehaviour
 
     public void ResetTimer()
     {
+		hasStarted = false;
         transform.localScale = orgSize;
         StopCoroutine("ChangeColor");
         GetComponent<RawImage>().color = colorGreen;
-        StartCoroutine("ChangeColor");
+        //StartCoroutine("ChangeColor");
     }
 }
