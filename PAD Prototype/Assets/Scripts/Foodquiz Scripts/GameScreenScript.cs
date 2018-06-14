@@ -105,25 +105,60 @@ public class GameScreenScript : MonoBehaviour {
         StartCoroutine("ChosenPlayerTimer");
     }
 
+	private IEnumerator ChosenPlayerTimer()
+	{
+		yield return new WaitForSeconds(1);
+		spelerButtons.SetActive(false);
+		answerButtons.SetActive(true);
+		timer.SetActive(true);
+		timerScript.StartTimer();
+		playSound("timerPlay");
+	}
+
     void EnableInteractable()
     {
         for (int i = 0; i < spelerButtonText.Length; i++)
         {
+			//enable player buttons
             GameObject parent = spelerButtonText[i].transform.parent.gameObject;
             Button chosenButton = parent.GetComponent<Button>();
             chosenButton.interactable = true;
+
+			//enable answer buttons
+			GameObject Answerparent = answerButtonText[i].transform.parent.gameObject;
+			Button chosenAnswerButton = Answerparent.GetComponent<Button>();
+			chosenAnswerButton.interactable = true;
         }
     }
 
-    private IEnumerator ChosenPlayerTimer()
-    {
-        yield return new WaitForSeconds(1);
-        spelerButtons.SetActive(false);
-        answerButtons.SetActive(true);
-        timer.SetActive(true);
-        timerScript.StartTimer();
-        playSound("timerPlay");
-    }
+    
+
+	public void ChosenAnswerButton(GameObject button)
+	{
+		for (int i = 0; i < answerButtonText.Length; i++)
+		{
+			GameObject parent = answerButtonText[i].transform.parent.gameObject;
+			Button chosenButton = parent.GetComponent<Button>();
+			if (parent != button)
+			{
+				chosenButton.interactable = false;
+			}
+		}
+		IEnumerator coroutine;
+		if (button.gameObject.name == "AnswerButton4"){
+			coroutine = ChosenAnswerTimer (true);
+		}
+		else{
+			coroutine = ChosenAnswerTimer (false);
+		}
+		StartCoroutine(coroutine);
+	}
+
+	private IEnumerator ChosenAnswerTimer(bool Answer)
+	{
+		yield return new WaitForSeconds(1);
+		ClickAnswerButton (Answer);
+	}
 
 	public void SetAnswer(){
         int amountOfAnswers = 4; //Int to select the next 4 answers in the list.
