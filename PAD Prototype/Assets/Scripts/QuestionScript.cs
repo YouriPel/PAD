@@ -57,11 +57,11 @@ public class QuestionScript : MonoBehaviour {
     //Add the facts in the facts list
     void AddFacts()
     {
-        facts.Add("Vitamine D is van belang voor sterke botten.");
-        facts.Add("Het zal je misschien verbazen, maar mango’s kunnen een ontstekingsremmend werken.");
-        facts.Add("Het proosten van een glas bier of wijn stamt uit het tijdperk van de Romeinen. Maar waar is deze gewoonte eigenlijk door ontstaan? Blijkbaar wantrouwde men elkaar, doordat veel Romeinen elkaar vergiftigden. Door ruw te proosten werd er een hoop drank uitgewisseld tussen de glazen. Hierdoor was de kans op vergiftiging een stuk kleiner.");
+        facts.Add("Wist je dat Vitamine D van belang is voor sterke botten?");
+        facts.Add("Wist je dat mango’s ontstekingsremmend kunnen werken?");
+        facts.Add("Wist je dat proosten stamt uit de Romeinse tijd? Om te bewijzen dat er geen gif in een glas zat werd er ruw geproost.");
         facts.Add("Wist je dat een knakworst ongeveer 1/5 van de geadviseerde hoeveelheid eiwitten per dag bevat?");
-        facts.Add("Wist 80% van een appel bestaat uit water?");
+        facts.Add("Wist je dat 80% van een appel bestaat uit water?");
 
     }
 }
