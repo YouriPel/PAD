@@ -32,18 +32,22 @@ public class QuestionScript : MonoBehaviour {
         answers.Add("Vitamine B");
         answers.Add("Vitamine C");
         answers.Add("Vitamine D");//Goed antwoord
+
         answers.Add("11,2 gram");
         answers.Add("13 gram");
         answers.Add("11 gram");
         answers.Add("12,2 gram");//Goed antwoord
+
         answers.Add("625 KJ");
         answers.Add("515 KJ");
         answers.Add("400 KJ");
         answers.Add("875 KJ");//Goed antwoord
+
         answers.Add("Een avocado");
         answers.Add("Een ananas");
         answers.Add("Een appel");
         answers.Add("Een knakworst");//Goed antwoord
+
         answers.Add("1 stuk watermeloen");
         answers.Add("3 sinaasappel");
         answers.Add("3 mandarijnen");

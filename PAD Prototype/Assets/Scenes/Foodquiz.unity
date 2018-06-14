@@ -328,7 +328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speler 4
+  m_Text: 'Speler 4:'
 --- !u!222 &44666556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1756,7 +1756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &522787585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2436,11 +2436,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 771330284}
-        m_MethodName: ClickAnswerButton
-        m_Mode: 6
+        m_MethodName: ChosenAnswerButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 744908644}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2555,6 +2555,7 @@ MonoBehaviour:
   incorrectSound: {fileID: 1421077173}
   correctSound: {fileID: 2096294341}
   timeSound: {fileID: 1253654184}
+  disabledPlayersById: 00000000000000000000000000000000
   DiffPos: []
 --- !u!1 &779461258
 GameObject:
@@ -3215,7 +3216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speler 3
+  m_Text: 'Speler 3:'
 --- !u!222 &895110331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3289,7 +3290,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speler 1
+  m_Text: 'Speler 1:'
 --- !u!222 &907761876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4101,11 +4102,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 771330284}
-        m_MethodName: ClickAnswerButton
-        m_Mode: 6
+        m_MethodName: ChosenAnswerButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1156179521}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4418,7 +4419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1301204123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4624,7 +4625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1400002184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5172,7 +5173,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speler 2
+  m_Text: 'Speler 2:'
 --- !u!222 &1523756941
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5268,11 +5269,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 771330284}
-        m_MethodName: ClickAnswerButton
-        m_Mode: 6
+        m_MethodName: ChosenAnswerButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1544913053}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6590,21 +6591,21 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 8300000, guid: 76a1692c58a5bd24c901d1cc9c5901bf,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 771330284}
-        m_MethodName: ClickAnswerButton
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 771330284}
+        m_MethodName: ChosenAnswerButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2049629951}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
