@@ -253,6 +253,7 @@ public class GameScreenScript : MonoBehaviour {
             InitDiffPos();
             SetAnswer();
             ShowQuestion();
+			EnableInteractable ();
             gameStateScript.GameScreen.SetActive(true);
             gameStateScript.ScoreScreen.SetActive(false);
 			answerButtons.SetActive(false);

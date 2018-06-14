@@ -102,6 +102,7 @@ public class TimerScript : MonoBehaviour
     public void ResetTimer()
     {
 		hasStarted = false;
+		this.gameObject.SetActive (false);
         transform.localScale = orgSize;
         StopCoroutine("ChangeColor");
         GetComponent<RawImage>().color = colorGreen;
