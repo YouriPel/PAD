@@ -2555,6 +2555,7 @@ MonoBehaviour:
   incorrectSound: {fileID: 1421077173}
   correctSound: {fileID: 2096294341}
   timeSound: {fileID: 1253654184}
+  DiffPos: []
 --- !u!1 &779461258
 GameObject:
   m_ObjectHideFlags: 0

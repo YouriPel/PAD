@@ -39,6 +39,9 @@ public class GameScreenScript : MonoBehaviour {
 
     private int[] disabledPlayersById = new int[4];
 
+    private Vector2[] answerButtonStartPos = new Vector2[4];
+    public List<Vector2> DiffPos = new List<Vector2>();
+
     void Start (){
 		spelerButtons.SetActive (true);
 		answerButtons.SetActive (false);
@@ -50,15 +53,30 @@ public class GameScreenScript : MonoBehaviour {
 			spelerButtonText[i - EQUALISE_VALUE].text = scoreboardScript.GetPlayer(i).GetName();
 		}
 
-
+        //save begin position of answerbutton
+        for (int i = 0; i < answerButtonText.Length; i++)
+        {
+            RectTransform parentPos = answerButtonText[i].transform.parent.gameObject.GetComponent<RectTransform>();
+            answerButtonStartPos[i] = parentPos.anchoredPosition;
+        }
+        InitDiffPos();
         SetAnswer();
         ShowQuestion();
     }
 
+    void InitDiffPos()
+    {
+        DiffPos.Add(new Vector2(-195, -400));
+        DiffPos.Add(new Vector2(195, -400));
+        DiffPos.Add(new Vector2(-195, 135));
+        DiffPos.Add(new Vector2(195,  135));
+    }
+
+
+
     void ShowQuestion()
     {
         questionAmount++;
-        print("questionAmount: " + questionAmount);
         questionAmountText.text = questionAmount + " / 5";
 
         int rndPlayer = (int)UnityEngine.Random.Range(0, spelerButtonText.Length);
@@ -109,15 +127,20 @@ public class GameScreenScript : MonoBehaviour {
 
 	public void SetAnswer(){
         int amountOfAnswers = 4; //Int to select the next 4 answers in the list.
-        for(int i=0; i<answerButtonText.Length; i++)
+        for (int i = 0; i < answerButtonText.Length; i++)
         {
             int whatAnswer = i + (amountOfAnswers * count);
             answerButtonText[i].text = questionScript.answers[whatAnswer];
-            //4de antwoord altijd goed
+            RectTransform parentPos = answerButtonText[i].transform.parent.gameObject.GetComponent<RectTransform>();
+
+            int rndPos = (int)UnityEngine.Random.Range(0, DiffPos.Count);
+            print("object "+i+" heeft "+ DiffPos[rndPos]);
+            parentPos.anchoredPosition = DiffPos[rndPos];
+            DiffPos.RemoveAt(rndPos);
         }
 	}
 
-	public void ClickAnswerButton (bool correctAnswer){
+    public void ClickAnswerButton (bool correctAnswer){
 		//See if correct answer is clicked
 		int playerid = currentPlayerId;
         timerScript.ResetTimer();
@@ -187,7 +210,10 @@ public class GameScreenScript : MonoBehaviour {
 			gameStateScript.EndScreen.SetActive (true);
             gameStateScript.ScoreScreen.SetActive(false);
 
-		} else {
+		}
+        else
+        {
+            InitDiffPos();
             SetAnswer();
             ShowQuestion();
             gameStateScript.GameScreen.SetActive(true);
