@@ -32,18 +32,22 @@ public class QuestionScript : MonoBehaviour {
         answers.Add("Vitamine B");
         answers.Add("Vitamine C");
         answers.Add("Vitamine D");//Goed antwoord
+
         answers.Add("11,2 gram");
         answers.Add("13 gram");
         answers.Add("11 gram");
         answers.Add("12,2 gram");//Goed antwoord
+
         answers.Add("625 KJ");
         answers.Add("515 KJ");
         answers.Add("400 KJ");
         answers.Add("875 KJ");//Goed antwoord
+
         answers.Add("Een avocado");
         answers.Add("Een ananas");
         answers.Add("Een appel");
         answers.Add("Een knakworst");//Goed antwoord
+
         answers.Add("1 stuk watermeloen");
         answers.Add("3 sinaasappel");
         answers.Add("3 mandarijnen");
@@ -53,11 +57,11 @@ public class QuestionScript : MonoBehaviour {
     //Add the facts in the facts list
     void AddFacts()
     {
-        facts.Add("Vitamine D is van belang voor sterke botten.");
-        facts.Add("Het zal je misschien verbazen, maar mango’s kunnen een ontstekingsremmend werken.");
-        facts.Add("Het proosten van een glas bier of wijn stamt uit het tijdperk van de Romeinen. Maar waar is deze gewoonte eigenlijk door ontstaan? Blijkbaar wantrouwde men elkaar, doordat veel Romeinen elkaar vergiftigden. Door ruw te proosten werd er een hoop drank uitgewisseld tussen de glazen. Hierdoor was de kans op vergiftiging een stuk kleiner.");
+        facts.Add("Wist je dat Vitamine D van belang is voor sterke botten?");
+        facts.Add("Wist je dat mango’s ontstekingsremmend kunnen werken?");
+        facts.Add("Wist je dat proosten stamt uit de Romeinse tijd? Om te bewijzen dat er geen gif in een glas zat werd er ruw geproost.");
         facts.Add("Wist je dat een knakworst ongeveer 1/5 van de geadviseerde hoeveelheid eiwitten per dag bevat?");
-        facts.Add("Wist 80% van een appel bestaat uit water?");
+        facts.Add("Wist je dat 80% van een appel bestaat uit water?");
 
     }
 }
