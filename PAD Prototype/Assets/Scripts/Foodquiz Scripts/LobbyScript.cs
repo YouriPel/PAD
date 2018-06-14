@@ -33,7 +33,7 @@ public class LobbyScript : MonoBehaviour
 		gameStateScript = gameStateObj.GetComponent<GameStateScript> ();
     }
 
-	void Start() {
+	void Start() {  
 		ChangeSpelerText (1);
 		startButtonText.text = "Volgende";
 		errorBorder.color = new Color (255, 0, 0, opacity);
@@ -76,6 +76,9 @@ public class LobbyScript : MonoBehaviour
 		nameText.gameObject.SetActive(true);
 		ChangeSpelerText (1);
 		startButtonText.text = "Volgende";
+        for (int i = 0; i < playerName.Length; i++) {
+            playerName[i] = null;
+        }
 	}
 
     void ShowErrorBorder()
