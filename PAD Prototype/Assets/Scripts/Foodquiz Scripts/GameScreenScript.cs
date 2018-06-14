@@ -117,7 +117,7 @@ public class GameScreenScript : MonoBehaviour {
 
     private IEnumerator ChosenPlayerTimer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         spelerButtons.SetActive(false);
         answerButtons.SetActive(true);
         timer.SetActive(true);
