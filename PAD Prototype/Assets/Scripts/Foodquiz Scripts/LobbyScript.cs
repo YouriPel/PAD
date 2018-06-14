@@ -49,7 +49,7 @@ public class LobbyScript : MonoBehaviour
 
 	void ChangeSpelerText(int huidigeSpeler) {
 		int huidigeSpelerCount = playerCount + huidigeSpeler;
-		spelerText.text = "Speler " + huidigeSpelerCount;
+		spelerText.text = "Speler:" + huidigeSpelerCount;
 	}
 
 	void ErrorBorderFade(){
@@ -67,10 +67,10 @@ public class LobbyScript : MonoBehaviour
 	}
 
 	public void ResetPlayerButton(){
-		speler1Text.text = "Speler 1: ";
-		speler2Text.text = "Speler 2: ";
-		speler3Text.text = "Speler 3: ";
-		speler4Text.text = "Speler 4: ";
+		speler1Text.text = "Speler 1:";
+		speler2Text.text = "Speler 2:";
+		speler3Text.text = "Speler 3:";
+		speler4Text.text = "Speler 4:";
 		playerCount = 0;
 		nameInput.gameObject.SetActive(true);
 		nameText.gameObject.SetActive(true);
