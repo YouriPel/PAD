@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class TimerScript : MonoBehaviour
 {
     public GameStateScript gameStateScript;
-    public ScoreboardScript scoreboardScript;
-    public GameObject gameScreen;
+	public ScoreboardScript scoreboardScript;
+	public GameScreenScript gameScreenScript;
 
     //Speed in seconds
     public float speed;
@@ -71,9 +71,13 @@ public class TimerScript : MonoBehaviour
         else
         {
             ResetTimer();
-            gameScreen.gameObject.SetActive(false);///////////Hi Kevin, waarschijnlijk is dit het probleem
-            gameStateScript.ScoreScreen.SetActive(true);
-            scoreboardScript.SetScoreboard();
+			if(!gameScreenScript.hasChosenAnswer){
+				gameScreenScript.ClickAnswerButton (false);
+			}
+
+			/*gameStateScript.GameScreen.SetActive (false);
+			gameStateScript.ScoreScreen.SetActive(true);
+			scoreboardScript.SetScoreboard();*/
         }
 
         #region Old code where the the color didn't change dynamicly

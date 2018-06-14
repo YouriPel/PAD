@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStateScript: {fileID: 512047113}
   scoreboardScript: {fileID: 67395813}
-  gameScreen: {fileID: 771330282}
+  gameScreenScript: {fileID: 771330284}
   speed: 10
   colorGreen: {r: 0.54509807, g: 0.9882353, b: 0.10980392, a: 1}
   colorRed: {r: 0.9882353, g: 0.14509805, b: 0.10980392, a: 1}
@@ -2552,11 +2552,13 @@ MonoBehaviour:
   - {fileID: 1477975491}
   - {fileID: 546138254}
   questionAmountText: {fileID: 878394769}
+  incorrectPlayers: 0
   incorrectSound: {fileID: 1421077173}
   correctSound: {fileID: 2096294341}
   timeSound: {fileID: 1253654184}
   disabledPlayersById: 00000000000000000000000000000000
   DiffPos: []
+  hasChosenAnswer: 0
 --- !u!1 &779461258
 GameObject:
   m_ObjectHideFlags: 0

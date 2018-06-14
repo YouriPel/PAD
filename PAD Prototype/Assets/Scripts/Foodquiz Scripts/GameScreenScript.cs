@@ -22,8 +22,9 @@ public class GameScreenScript : MonoBehaviour {
 	public Text[] answerButtonText = new Text[4];
     public Text questionAmountText;
 
-    private int currentPlayerId;
-    private int incorrectPlayers;
+	public int incorrectPlayers;
+
+	private int currentPlayerId;
     private int currentScore;
     private int questionAmount = 0;
     private int count = 0;
@@ -38,6 +39,8 @@ public class GameScreenScript : MonoBehaviour {
 
     private Vector2[] answerButtonStartPos = new Vector2[4];
     public List<Vector2> DiffPos = new List<Vector2>();
+
+	public bool hasChosenAnswer;
 
     void Start (){
 		spelerButtons.SetActive (true);
@@ -130,6 +133,7 @@ public class GameScreenScript : MonoBehaviour {
 
 	public void ChosenAnswerButton(GameObject button)
 	{
+		hasChosenAnswer = true;
 		for (int i = 0; i < answerButtonText.Length; i++)
 		{
 			GameObject parent = answerButtonText[i].transform.parent.gameObject;
@@ -192,7 +196,6 @@ public class GameScreenScript : MonoBehaviour {
             spelerButtonText [playerid-1].transform.parent.gameObject.SetActive (false);
             //disabledPlayersById[incorrectPlayers] = playerid - 1;
 
-			playSound("incorrect");
 			incorrectPlayers++;
 			print("incorrectPlayers: "+incorrectPlayers);
 
