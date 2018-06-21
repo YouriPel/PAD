@@ -6,28 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour {
     
-	void Start(){
+	void Start() {
 		DontDestroyOnLoad (this.gameObject);
 	}
 
-    void OnEnable()
-    {
+    void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        switch (scene.buildIndex)
-        {
-            case 0:
-                {
-                    //print("menu loaded");
-                    break;
-                }
-            case 1:
-                {
-                    break;
-                }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        switch (scene.buildIndex) {
+            case 0: {
+                break;
+            }
+            case 1: {
+                break;
+            }
         }
     }
 }

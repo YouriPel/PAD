@@ -10,21 +10,17 @@ public class Question : MonoBehaviour {
     private int randomQuestionNumber;
     private List<int> totalQuestions;
 
-    // TODO: Adjust to amount of questions in database
     private readonly int MAXIMUM_QUESTION_AMOUNT = 3;
 
     public String GetQuestion() {
-        // TODO: Return has to have the SQL query with randomQuestionNumber as the variable
         return question;
     }
 
     public String GetCorrectAnswer() {
-        // TODO: Return has to have the SQL query with randomQuestionNumber as the variable
         return correctAnswer;
     }
 
     // Gets a random unique number 
-    // (Not sure if it works yet)
     private int GetRandomQuestionNumber() {
         System.Random randomNumber = new System.Random();
         do {

@@ -11,6 +11,11 @@ public class AnswerButton : MonoBehaviour {
     private GameObject correctAnswerButton;
     private GameObject customAnswerButton;
 
+    private readonly int TOTAL_ANSWER_BUTTONS = 5;
+
+    private int randomAnswerButtonNumber;
+    private List<int> randomAnswerNumber;
+
     public void SetCustomAnswerButton(InputField playerInput) {
         customAnswerButton.GetComponentInChildren<Text>().text = playerInput.text;
     }
@@ -27,35 +32,26 @@ public class AnswerButton : MonoBehaviour {
         return correctAnswerButton;
     }
 
-    //// TODO: Decide the total answer buttons
-    //private readonly int TOTAL_ANSWER_BUTTONS = 5;
+    public GameObject[] GetAnswerButtons() {
+        return answerButtons;
+    }
 
-    //private int randomAnswerButtonNumber;
-    //private List<int> randomAnswerNumber;
+    public void SetAnswerButton(InputField playerInput) {
+       answerButtons[this.GetRandomAnswerButton()].GetComponentInChildren<Text>().text = playerInput.text;
+    }
 
-    //public GameObject[] GetAnswerButtons() {
-    //    return answerButtons;
-    //}
+    private void SetCorrectAnswerButon() {
+        correctAnswerButton.GetComponentInChildren<Text>().text = gameStateManager.GetComponent<Question>().GetCorrectAnswer();
+        answerButtons[this.GetRandomAnswerButton()] = correctAnswerButton;
+    }
 
-    //public void SetAnswerButton(InputField playerInput)
-    //{
-    //    answerButtons[this.GetRandomAnswerButton()].GetComponentInChildren<Text>().text = playerInput.text;
-    //}
-
-    //private void SetCorrectAnswerButon()
-    //{
-    //    correctAnswerButton.GetComponentInChildren<Text>().text = gameStateManager.GetComponent<Question>().GetCorrectAnswer();
-    //    answerButtons[this.GetRandomAnswerButton()] = correctAnswerButton;
-    //}
-
-    //// Gets a random unique number 
-    //// (Not sure if it works yet)
-    //private int GetRandomAnswerButton() {
-    //    System.Random randomNumber = new System.Random();
-    //    do {
-    //        randomAnswerButtonNumber = randomNumber.Next(TOTAL_ANSWER_BUTTONS);
-    //    } while (randomAnswerNumber.Contains(randomAnswerButtonNumber));
-    //    randomAnswerNumber.Add(randomAnswerButtonNumber);
-    //    return randomAnswerButtonNumber;
-    //}
+    // Gets a random unique number 
+    private int GetRandomAnswerButton() {
+        System.Random randomNumber = new System.Random();
+        do {
+            randomAnswerButtonNumber = randomNumber.Next(TOTAL_ANSWER_BUTTONS);
+        } while (randomAnswerNumber.Contains(randomAnswerButtonNumber));
+        randomAnswerNumber.Add(randomAnswerButtonNumber);
+        return randomAnswerButtonNumber;
+    }
 }

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    // Initiale attributes 
     private string name;
     private int score;
     private int playerId;
 
-    // Initiale readonly values
     private readonly int PLAYER_AMOUNT = 4;
     private readonly int SCORE_POINT = 1;
     private readonly int DEFAULT_SCORE = 0;
@@ -25,7 +23,6 @@ public class Player : MonoBehaviour {
     /// </param>
     public Player(string name, int playerId) {
         this.playerId = playerId;
-        //Debug.Log(playerId);
         this.name = name;
         this.score = DEFAULT_SCORE;
     }

@@ -7,42 +7,42 @@ using UnityEngine.UI;
 
 public class ScoreboardScript : MonoBehaviour {
 
-    // Initialize script
     public Player playerScript;
     public QuestionScript questionScript;
 
-    // Initialize variables
     public Dictionary<string, int> playerScore = new Dictionary<string, int>();
     public List<Player> players = new List<Player>();
     public Text[] nameText = new Text[4];
     public Text[] scoreText = new Text[4];
     public int playerId = 0;
     public int counter = 0;
-    public Text factText;
-    private int factCounter;
+    public int factCounter = 0;
+
+    public Text factText;    
     public GameObject shareButton;
 
-    // Initialize readonly values
     private readonly int EQUALISE_VALUE = 1;
     private readonly int RESET_COUNTER = 0;
+    private readonly int FACT_AMOUNT = 5;
 
-
-    void Start()
-    {
+    /// <summary>
+    /// Disables the shareButton on the start
+    /// </summary>
+    void Start() {
         shareButton.SetActive(false);
     }
 
     /// <summary>
-    /// Gets the scores by name and sorts them
+    /// Sets the scoreboard sorted by player scores and shows a fact
     /// </summary> 
     public void SetScoreboard() {
 
-        //set fact about the question
+        // Set a fact that comes with the question
         factText.text = questionScript.facts[factCounter];
         factCounter++;
 
-        if(factCounter == 5)
-        {
+        // After the fact amount, show the share button
+        if(factCounter == FACT_AMOUNT) {
             shareButton.SetActive(true);
         }
 
@@ -51,7 +51,7 @@ public class ScoreboardScript : MonoBehaviour {
             playerScore[players[i].GetName()] = players[i].GetScore();
         }
 
-        // Sort the list based on scores
+        // Sort the list based on scores 
         List<KeyValuePair<string, int>> compareScoreList = playerScore.ToList();
         compareScoreList.Sort(delegate (KeyValuePair<string, int> pairOne, KeyValuePair<string, int> pairTwo) {
             return pairTwo.Value.CompareTo(pairOne.Value);

@@ -14,11 +14,6 @@ public class Scoreboard : MonoBehaviour {
     private readonly int CORRECT_ANSWER_POINT = 1;
     private readonly int RESET_SCORE = 0;
 
-    public void Start() {
-        //this.SetName(username.text);
-        //this.ResetScore();
-    }
-
     public void AddScore() {
         score += CORRECT_ANSWER_POINT;
     }
