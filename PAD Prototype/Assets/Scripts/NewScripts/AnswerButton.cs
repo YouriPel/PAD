@@ -32,18 +32,18 @@ public class AnswerButton : MonoBehaviour {
         return correctAnswerButton;
     }
 
-    public GameObject[] GetAnswerButtons() {
-        return answerButtons;
-    }
+    /*public GameObject[] GetAnswerButtons() {
+        //return answerButtons;
+    }*/
 
     public void SetAnswerButton(InputField playerInput) {
-       answerButtons[this.GetRandomAnswerButton()].GetComponentInChildren<Text>().text = playerInput.text;
+       //answerButtons[this.GetRandomAnswerButton()].GetComponentInChildren<Text>().text = playerInput.text;
     }
 
-    private void SetCorrectAnswerButon() {
+    /*private void SetCorrectAnswerButon() {
         correctAnswerButton.GetComponentInChildren<Text>().text = gameStateManager.GetComponent<Question>().GetCorrectAnswer();
-        answerButtons[this.GetRandomAnswerButton()] = correctAnswerButton;
-    }
+       // answerButtons[this.GetRandomAnswerButton()] = correctAnswerButton;
+    }*/
 
     // Gets a random unique number 
     private int GetRandomAnswerButton() {
