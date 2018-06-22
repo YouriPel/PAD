@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Foodquiz.unity
     guid: 3bee0419bfe0f0646929e8df5c19dd44
+  - enabled: 1
+    path: Assets/Scenes/Network_Prototype.unity
+    guid: 8084df3dff11dae408827ece2b3b30e3
