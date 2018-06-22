@@ -61,7 +61,7 @@ public class GameScreenScript : MonoBehaviour {
         SetAnswer();
         ShowQuestion();
     }
-
+	//Gives position to randomise the buttons
     void InitDiffPos()
     {
         DiffPos.Add(new Vector2(-195, -400));
@@ -71,12 +71,12 @@ public class GameScreenScript : MonoBehaviour {
     }
 
 
-
+	//
     void ShowQuestion()
     {
         questionAmount++;
         questionAmountText.text = questionAmount + " / 5";
-
+		//Makes var to personalise the question
         int rndPlayer = (int)UnityEngine.Random.Range(0, spelerButtonText.Length);
 
         questionText.text = spelerButtonText[rndPlayer].text + questionScript.questions[count];
@@ -102,7 +102,7 @@ public class GameScreenScript : MonoBehaviour {
         }
         StartCoroutine("ChosenPlayerTimer");
     }
-
+	//Timer waits before going further
 	private IEnumerator ChosenPlayerTimer()
 	{
 		yield return new WaitForSeconds(1);
@@ -112,7 +112,7 @@ public class GameScreenScript : MonoBehaviour {
 		timerScript.StartTimer();
 		playSound("timerPlay");
 	}
-
+	//
     void EnableInteractable()
     {
         for (int i = 0; i < spelerButtonText.Length; i++)
@@ -130,7 +130,7 @@ public class GameScreenScript : MonoBehaviour {
     }
 
     
-
+	//Looks if what answer is given
 	public void ChosenAnswerButton(GameObject button)
 	{
 		hasChosenAnswer = true;
@@ -152,13 +152,13 @@ public class GameScreenScript : MonoBehaviour {
 		}
 		StartCoroutine(coroutine);
 	}
-
+	//answer button wait timer
 	private IEnumerator ChosenAnswerTimer(bool Answer)
 	{
 		yield return new WaitForSeconds(1);
 		ClickAnswerButton (Answer);
 	}
-
+	//gets the answers for the next question
 	public void SetAnswer(){
         int amountOfAnswers = 4; //Int to select the next 4 answers in the list.
         for (int i = 0; i < answerButtonText.Length; i++)
@@ -208,7 +208,7 @@ public class GameScreenScript : MonoBehaviour {
 			currentPlayerId = -1;
         }
     }
-
+	//show scoreboard
     void ShowScoreBoard()
     {
         this.gameObject.SetActive(false);
@@ -216,7 +216,7 @@ public class GameScreenScript : MonoBehaviour {
         scoreboardScript.SetScoreboard();
         timer.SetActive(false);
     }
-
+	//manage sounds
     public void playSound(String path)
     {
         switch(path)
@@ -245,7 +245,7 @@ public class GameScreenScript : MonoBehaviour {
         {
             spelerButtonText[i].transform.parent.gameObject.SetActive(true);
         }
-        
+        //stops the question loop
 		if (questionAmount == 5) {
 			gameStateScript.EndScreen.SetActive (true);
             gameStateScript.ScoreScreen.SetActive(false);
