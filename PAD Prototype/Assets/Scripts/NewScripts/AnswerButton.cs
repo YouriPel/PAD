@@ -32,7 +32,6 @@ public class AnswerButton : MonoBehaviour {
         return correctAnswerButton;
     }
 
-<<<<<<< HEAD
     //public GameObject[] GetAnswerButtons() {
     //    return answerButtons;
     //}
@@ -45,7 +44,6 @@ public class AnswerButton : MonoBehaviour {
     //    correctAnswerButton.GetComponentInChildren<Text>().text = gameStateManager.GetComponent<Question>().GetCorrectAnswer();
     //    answerButtons[this.GetRandomAnswerButton()] = correctAnswerButton;
     //}
-=======
     /*public GameObject[] GetAnswerButtons() {
         //return answerButtons;
     }*/
@@ -58,7 +56,6 @@ public class AnswerButton : MonoBehaviour {
         correctAnswerButton.GetComponentInChildren<Text>().text = gameStateManager.GetComponent<Question>().GetCorrectAnswer();
        // answerButtons[this.GetRandomAnswerButton()] = correctAnswerButton;
     }*/
->>>>>>> 2ffe60c4ce7686dc84f3f8c4db00cbf1917fba05
 
     // Gets a random unique number 
     private int GetRandomAnswerButton() {
