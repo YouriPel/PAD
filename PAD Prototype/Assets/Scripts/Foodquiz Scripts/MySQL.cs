@@ -171,6 +171,7 @@ public class MySQL : MonoBehaviour
     {
         try
         {
+            //Initialize actual time
             DateTime Time = DateTime.Now;
             int year = Time.Year;
             int month = Time.Month;
@@ -179,25 +180,29 @@ public class MySQL : MonoBehaviour
             int minute = Time.Minute;
             int second = Time.Second;
             int millisecond = Time.Millisecond;
-
+            //Create a string for path
             string path;
             path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
         "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
             StreamWriter file = new StreamWriter(path);
 
-
+            //Create the processStartInfo structure
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "mysqldump";
+            //Declare if input needs to be read from input or output
             psi.RedirectStandardInput = false;
             psi.RedirectStandardOutput = true;
+            //insert the value of of the uid password server and database into a string to displat it as a single string
             psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
                 uid, password, server, database);
+            //Set useShellExecute to false otherwise exception error
             psi.UseShellExecute = false;
 
             Process process = Process.Start(psi);
-
+            //avoid deadlock condition by reading output first before the wait
             string output;
             output = process.StandardOutput.ReadToEnd();
+            //Write the output to the file
             file.WriteLine(output);
             process.WaitForExit();
             file.Close();
