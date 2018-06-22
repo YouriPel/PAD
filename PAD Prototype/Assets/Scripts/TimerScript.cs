@@ -15,33 +15,39 @@ public class TimerScript : MonoBehaviour
     //Size of the timer
     private Vector2 size;
 
-    //Orginal Size of the timer
+    //Original Size of the timer
     private Vector2 orgSize = new Vector2(1, 1);
 
     //Colors for the timer
     public Color colorGreen;
     public Color colorRed;
 
-    //Determines the smoothness of the lerp. Smaller values are smoother.
+    //Determines the smoothness of the lerp (color changing). Smaller values are smoother.
     float smoothness = 0.02f;
     //This float will serve as the 3rd parameter of the lerp function
     public float progress = 0;
     
+    //Bool to check if the timer has started
 	private bool hasStarted;
 
+    /// <summary>
+    /// Starts the timer
+    /// </summary>
     public void StartTimer()
     {
-        //print(orgSize);
 		hasStarted = true;
         StartCoroutine("ChangeColor");
     }
 
+    /// <summary>
+    /// Changes the color of the timer
+    /// </summary>
     IEnumerator ChangeColor()
     {
-        
-        progress = 0;//Deze regel toegevoegd
+        progress = 0;//Reset progress to 0
         while (progress < 1)
         {
+            //Changes the color from green to red depending on the progress
             GetComponent<RawImage>().color = Color.Lerp(colorGreen, colorRed, progress);
             progress += (smoothness / (speed / 2)); //The amount of change to apply
             yield return new WaitForSeconds(smoothness);
@@ -52,11 +58,17 @@ public class TimerScript : MonoBehaviour
 
 	void Update()
     {
-		if(hasStarted)ChangeSize();
+        //If the the timer has started, start ChangeSize method
+		if(hasStarted)
+            ChangeSize();
     }
 
+    /// <summary>
+    /// Changes the size of the Timer
+    /// </summary>
     void ChangeSize()
     {
+        //Get Timer size
         size = transform.localScale;
 
         //Changes y size 
@@ -67,17 +79,15 @@ public class TimerScript : MonoBehaviour
         {
             transform.localScale = size;
         }
+
         //If time is up, go to scoreboard
         else
         {
             ResetTimer();
-			if(!gameScreenScript.hasChosenAnswer){
-				gameScreenScript.ClickAnswerButton (false);
+            //If the bool hasChosenAnswer is false, continue to ClickAnswerButton method
+            if (!gameScreenScript.hasChosenAnswer){
+				gameScreenScript.ClickAnswerButton(false);
 			}
-
-			/*gameStateScript.GameScreen.SetActive (false);
-			gameStateScript.ScoreScreen.SetActive(true);
-			scoreboardScript.SetScoreboard();*/
         }
 
         #region Old code where the the color didn't change dynamicly
@@ -103,13 +113,19 @@ public class TimerScript : MonoBehaviour
         #endregion
     }
 
+    /// <summary>
+    /// Resets Timer
+    /// </summary>
     public void ResetTimer()
     {
 		hasStarted = false;
+        //Hides Timer
 		this.gameObject.SetActive (false);
+        //Puts Timer back to its original size
         transform.localScale = orgSize;
+        //Stop the color changing method
         StopCoroutine("ChangeColor");
+        //Puts color back to green
         GetComponent<RawImage>().color = colorGreen;
-        //StartCoroutine("ChangeColor");
     }
 }
